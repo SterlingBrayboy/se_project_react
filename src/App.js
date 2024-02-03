@@ -1,26 +1,15 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Header from "./Header/Header";
+import WeatherCard from "./WeatherCard/WeatherCard";
 
 function App() {
   return (
     <div>
-      <header className="header">
-        <div className="header__logo">
-          <div>
-            <img src="/images/logo.svg" alt="logo" />
-          </div>
-          <div>Date</div>
-        </div>
-        <div className="header__avatar-logo">
-          <div>
-            <button type="text">Add New Clothes</button>
-          </div>
-          <div>Name</div>
-          <div>
-            <img src="/images/avatar.svg" alt="avatar" />
-          </div>
-        </div>
-      </header>
+      <Header />
+      <main className="main">
+        <WeatherCard />
+        <section id="card">card</section>
+      </main>
     </div>
   );
 }
