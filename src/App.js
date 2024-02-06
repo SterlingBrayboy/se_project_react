@@ -7,7 +7,7 @@ function App() {
     <div>
       <Header />
       <main className="main">
-        <WeatherCard />
+        <WeatherCard day={true} type="sunny" />
         <section id="card">card</section>
       </main>
     </div>

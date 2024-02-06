@@ -1,12 +1,31 @@
 import "./WeatherCard.css";
 
-const WeatherCard = () => {
-  console.log("Weather Card");
+const weatherOptions = [
+  { url: require("../images/day/sunny.svg").default, day: true, type: "sunny" },
+  {
+    url: require("../images/day/cloudy.svg").default,
+    day: true,
+    type: "cloudy",
+  },
+  { url: require("../images/day/rain.svg").default, day: false, type: "rain" },
+  {
+    url: require("../images/day/storm.svg").default,
+    day: false,
+    type: "storm",
+  },
+];
+
+const WeatherCard = ({ day, type }) => {
+  const imageSrc = weatherOptions.filter((i) => {
+    return i.day === day && i.type === type;
+  });
+
+  const imageSrcUrl = imageSrc[0].url || "";
 
   return (
     <section className="weather" id="weather">
       <div className="weather__info">75F</div>
-      <img src="./images/day/sunny.svg" className="weather__mural" />
+      <img src={imageSrcUrl} className="weather__mural" />
     </section>
   );
 };
