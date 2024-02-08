@@ -13,3 +13,25 @@
 .weather__mural {
   width: 100%;
 }
+
+.card_section {
+  margin: 20px;
+}
+
+.card_name {
+  text-align: center;
+}
+
+.card_image {
+  width: 328px;
+  height: 328px;
+  border-radius: 10px;
+}
+
+.card_items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
