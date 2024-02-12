@@ -1,4 +1,4 @@
-import { defaultClothingItems } from "../utils/constants.js";
+import { defaultClothingItems } from "../utils/constants";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 
@@ -9,9 +9,9 @@ function Main({ weatherTemp }) {
       <section id="card" className="card_section">
         Today is {weatherTemp} F / You may want to wear:
         <div className="card_items">
-          {defaultClothingItems.map((x) => {
-            return <ItemCard x={x} />;
-          })}
+          {defaultClothingItems.map((item) => (
+            <ItemCard item={item} />
+          ))}
         </div>
       </section>
     </main>

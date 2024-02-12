@@ -1,10 +1,10 @@
-const ItemCard = ({ x }) => {
+const ItemCard = ({ item }) => {
   return (
     <div>
       <div>
-        <img className="card_image" src={x.link} />
+        <img className="card_image" src={item.link} />
       </div>
-      <div className="card_name">{x.name}</div>
+      <div className="card_name">{item.name}</div>
     </div>
   );
 };
