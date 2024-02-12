@@ -1,7 +1,5 @@
 import "./App.css";
 import Header from "./Header/Header";
-// import WeatherCard from "./WeatherCard/WeatherCard";
-// import ItemCard from "./ItemCard/ItemCard";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 
