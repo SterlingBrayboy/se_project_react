@@ -17,3 +17,9 @@
   gap: 20px;
   align-items: center;
 }
+
+.header__button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}

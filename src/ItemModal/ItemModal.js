@@ -3,7 +3,7 @@ const ItemModal = ({ selectedCard, onClose }) => {
 
   return (
     <div className={`modal`}>
-      <div className="modal__content">
+      <div className="modal__content-form">
         <button type="button" onClick={onClose}>
           Close
         </button>

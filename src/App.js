@@ -41,28 +41,42 @@ function App() {
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} temp={temp} />
       <Footer />
       {activeModal === "create" && (
-        <ModalWithForm title="New Garment" onClose={handleCloseModal}>
-          <label>
+        <ModalWithForm title="New garment" onClose={handleCloseModal}>
+          <label className="modal__name">
             Name
-            <input type="text" name="name" minLength="1" maxLength="30" />
+            <input
+              className="modal__input"
+              type="text"
+              name="name"
+              minLength="1"
+              maxLength="30"
+              placeholder="Name"
+            />
           </label>
-          <label>
+          <label className="modal__image">
             Image
-            <input type="url" name="link" minLength="1" maxLength="30" />
+            <input
+              className="modal__input"
+              type="url"
+              name="link"
+              minLength="1"
+              maxLength="30"
+              placeholder="Image URL"
+            />
           </label>
-          <p>Select the weather type:</p>
+          <p className="modal__subtitle">Select the weather type:</p>
           <div>
-            <div>
+            <div className="modal__radio-button">
               <input type="radio" id="hot" value="hot" />
-              <label> Hot</label>
+              <label className="modal__radio-button-label"> Hot</label>
             </div>
-            <div>
+            <div className="modal__radio-button">
               <input type="radio" id="warm" value="warm" />
-              <label> Warm</label>
+              <label className="modal__radio-button-label"> Warm</label>
             </div>
-            <div>
+            <div className="modal__radio-button">
               <input type="radio" id="cold" value="cold" />
-              <label> Cold</label>
+              <label className="modal__radio-button-label"> Cold</label>
             </div>
           </div>
         </ModalWithForm>

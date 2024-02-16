@@ -15,7 +15,7 @@
 }
 
 .card_section {
-  margin: 20px;
+  margin-top: 20px;
 }
 
 .card_name {
@@ -34,4 +34,5 @@
   gap: 20px;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 171px;
 }
