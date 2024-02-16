@@ -1,5 +1,6 @@
 .footer {
   /* position: absolute; */
+  font-family: "Cabinet Grotesk-Regular";
   display: flex;
   justify-content: space-between;
   margin-top: 20px;

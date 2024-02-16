@@ -1,15 +1,24 @@
+import "./ItemModal.css";
+
 const ItemModal = ({ selectedCard, onClose }) => {
   console.log("ItemModal");
 
   return (
     <div className={`modal`}>
-      <div className="modal__content-form">
-        <button type="button" onClick={onClose}>
-          Close
-        </button>
-        <img src={selectedCard.link} />
-        <div> {selectedCard.name} </div>
-        <div> Weather Type: {selectedCard.weather} </div>
+      <div className="modal__content-item">
+        <button
+          className="modal__close"
+          type="button"
+          onClick={onClose}
+        ></button>
+        <img className="modal__content-image" src={selectedCard.link} />
+        <div className="modal__description">
+          <div className="modal__content-name"> {selectedCard.name} </div>
+          <div className="modal__content-type">
+            {" "}
+            Weather Type: {selectedCard.weather}{" "}
+          </div>
+        </div>
       </div>
     </div>
   );

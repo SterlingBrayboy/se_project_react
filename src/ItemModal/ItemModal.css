@@ -1,0 +1,20 @@
+.modal__content-item {
+  border-radius: 20px;
+  width: 496px;
+}
+
+.modal__description {
+  font-family: "Cabinet Grotesk-Bold";
+  padding-left: 32px;
+  padding-top: 20px;
+}
+
+.modal__content-name {
+  padding-bottom: 12px;
+}
+
+.modal__content-image {
+  width: 498px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}

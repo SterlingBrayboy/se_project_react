@@ -1,8 +1,10 @@
 .weather {
   position: relative;
+  max-height: 80px;
 }
 
 .weather__info {
+  font-family: "Cabinet Grotesk-Medium";
   position: absolute;
   top: 25px;
   left: 25px;
@@ -15,11 +17,16 @@
 }
 
 .card_section {
-  margin-top: 20px;
+  font-family: "Cabinet Grotesk-Bold";
+  margin-top: 40px;
 }
 
 .card_name {
+  background-color: #fff;
+  border-radius: 5px;
   text-align: center;
+  font-family: "Cabinet Grotesk-Medium";
+  color: #000;
 }
 
 .card_image {
@@ -33,6 +40,6 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 34px;
   margin-bottom: 171px;
 }
