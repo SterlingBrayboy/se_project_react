@@ -42,7 +42,7 @@ function App() {
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm title="New garment" onClose={handleCloseModal}>
-          <label className="modal__name">
+          <label>
             Name
             <input
               className="modal__input"
@@ -53,7 +53,7 @@ function App() {
               placeholder="Name"
             />
           </label>
-          <label className="modal__image">
+          <label>
             Image
             <input
               className="modal__input"

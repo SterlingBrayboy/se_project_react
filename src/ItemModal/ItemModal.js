@@ -1,13 +1,13 @@
 import "./ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose }) => {
-  console.log("ItemModal");
+  // console.log("ItemModal");
 
   return (
     <div className={`modal`}>
       <div className="modal__content-item">
         <button
-          className="modal__close"
+          className="modal__close-item"
           type="button"
           onClick={onClose}
         ></button>

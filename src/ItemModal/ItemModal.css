@@ -1,20 +1,40 @@
 .modal__content-item {
+  display: flex;
   border-radius: 20px;
-  width: 496px;
+  max-width: 496px;
+  flex-direction: column;
 }
 
 .modal__description {
   font-family: "Cabinet Grotesk-Bold";
+  font-size: 20px;
   padding-left: 32px;
   padding-top: 20px;
+  background-color: white;
+  width: 466px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .modal__content-name {
   padding-bottom: 12px;
 }
 
+.modal__content-type {
+  padding-bottom: 32px;
+}
+
 .modal__content-image {
   width: 498px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+}
+
+.modal__close-item {
+  border: none;
+  background: none;
+  background-image: url(../images/whiteclose.svg);
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
 }

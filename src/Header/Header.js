@@ -1,7 +1,7 @@
 import "./Header.css";
 
 const Header = ({ onCreateModal }) => {
-  console.log("Header");
+  // console.log("Header");
 
   return (
     <header className="header">
@@ -9,7 +9,7 @@ const Header = ({ onCreateModal }) => {
         <div>
           <img src={require("../images/logo.svg").default} alt="logo" />
         </div>
-        <div className="header__date">Date</div>
+        <div className="header__date">June 15, New York</div>
       </div>
       <div className="header__avatar-logo">
         <div>
@@ -21,7 +21,7 @@ const Header = ({ onCreateModal }) => {
             + Add clothes
           </button>
         </div>
-        <div>Name</div>
+        <div>Terrence Tegegne</div>
         <div>
           <img src={require("../images/avatar.svg").default} alt="avatar" />
         </div>
