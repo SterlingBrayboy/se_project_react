@@ -1,6 +1,6 @@
 import { defaultClothingItems } from "../../utils/constants";
-import WeatherCard from "../components/WeatherCard/WeatherCardard";
-import ItemCard from "../../ItemCard/ItemCardrd/ItemCard";
+import WeatherCard from "../WeatherCard/WeatherCard";
+import ItemCard from "../ItemCard/ItemCard";
 import { useMemo } from "react";
 
 function Main({ weatherTemp, onSelectCard }) {

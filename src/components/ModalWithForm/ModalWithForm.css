@@ -83,7 +83,7 @@
   justify-content: flex-end;
   border: none;
   background: none;
-  background-image: url(../images/close.svg);
+  background-image: url(../../images/close.svg);
   cursor: pointer;
   height: 16px;
   width: 16px;
