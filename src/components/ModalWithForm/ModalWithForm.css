@@ -72,8 +72,8 @@
   padding-bottom: 0;
 }
 
-.modal__radio-button-label {
-  padding-left: 8px;
+.modal__radio-button-icon {
+  margin-right: 8px;
 }
 
 .modal__close {

@@ -1,3 +1,8 @@
+import sunny from "../images/day/sunny.svg";
+import cloudy from "../images/day/cloudy.svg";
+import rain from "../images/day/rain.svg";
+import storm from "../images/day/storm.svg";
+
 export const defaultClothingItems = [
   {
     _id: 0,
@@ -34,5 +39,28 @@ export const defaultClothingItems = [
     name: "Winter coat",
     weather: "cold",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
+  },
+];
+
+export const weatherOptions = [
+  {
+    url: sunny,
+    day: true,
+    type: "sunny",
+  },
+  {
+    url: cloudy,
+    day: true,
+    type: "cloudy",
+  },
+  {
+    url: rain,
+    day: false,
+    type: "rain",
+  },
+  {
+    url: storm,
+    day: false,
+    type: "storm",
   },
 ];

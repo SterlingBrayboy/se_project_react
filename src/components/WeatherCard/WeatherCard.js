@@ -1,27 +1,5 @@
+import { weatherOptions } from "../../utils/constants";
 import "./WeatherCard.css";
-
-const weatherOptions = [
-  {
-    url: require("../../images/day/sunny.svg").default,
-    day: true,
-    type: "sunny",
-  },
-  {
-    url: require("../../images/day/cloudy.svg").default,
-    day: true,
-    type: "cloudy",
-  },
-  {
-    url: require("../../images/day/rain.svg").default,
-    day: false,
-    type: "rain",
-  },
-  {
-    url: require("../../images/day/storm.svg").default,
-    day: false,
-    type: "storm",
-  },
-];
 
 const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   const imageSrc = weatherOptions.filter((i) => {
