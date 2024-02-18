@@ -16,30 +16,41 @@
   width: 100%;
 }
 
-.card_section {
+.card {
   font-family: "Cabinet Grotesk-Bold";
   margin-top: 40px;
 }
 
-.card_name {
+.card__name {
+  position: absolute;
+  bottom: 290px;
+  right: 120px;
   background-color: #fff;
-  border-radius: 5px;
+  padding-top: 2px;
+  width: 91px;
+  height: 24px;
+  border-radius: 4px;
   text-align: center;
   font-family: "Cabinet Grotesk-Medium";
-  color: #000;
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.card_image {
-  width: 328px;
+.card__image {
+  width: 325px;
   height: 328px;
-  border-radius: 10px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.card_items {
+.card__items {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   margin-top: 34px;
   margin-bottom: 171px;
+}
+
+.card__area {
+  position: relative;
 }

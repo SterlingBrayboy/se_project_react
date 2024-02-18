@@ -11,6 +11,7 @@
 }
 
 .modal__content {
+  position: relative;
   font-family: "Cabinet Grotesk-Medium";
   background-color: white;
   border-radius: 20px;
@@ -76,6 +77,8 @@
 }
 
 .modal__close {
+  position: absolute;
+  left: 510px;
   display: flex;
   justify-content: flex-end;
   border: none;
