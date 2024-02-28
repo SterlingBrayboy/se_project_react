@@ -9,6 +9,8 @@ import ItemModal from "../ItemModal/ItemModal";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import AddItemModal from "../../AddItemModal/AddItemModal";
 
 function App() {
   const weatherTemp = "110";
@@ -31,6 +33,10 @@ function App() {
     setSelectedCard(card);
   };
 
+  const onAddItem = (values) => {
+    console.log(values);
+  };
+
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -48,89 +54,28 @@ function App() {
   console.log(currentTemperatureUnit);
 
   return (
-    // <div className="page">
-    //   <CurrentTemperatureUnitContext.Provider
-    //     value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-    //   >
     <div>
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Header onCreateModal={handleCreateModal} temp={temp} />
-        {/* <Switch isOn={value} handleToggle={() => setValue(!value)} /> */}
-        <Main
-          weatherTemp={temp}
-          onSelectCard={handleSelectedCard}
-          temp={temp}
-        />
+        <Switch>
+          <Route exact path="/">
+            <Main
+              weatherTemp={temp}
+              onSelectCard={handleSelectedCard}
+              // temp={temp}
+            />
+          </Route>
+          <Route path="/profile">Profile</Route>
+        </Switch>
         <Footer />
         {activeModal === "create" && (
-          <ModalWithForm title="New garment" onClose={handleCloseModal}>
-            <label>
-              Name
-              <input
-                className="modal__input"
-                type="text"
-                name="name"
-                minLength="1"
-                maxLength="30"
-                placeholder="Name"
-              />
-            </label>
-            <label>
-              Image
-              <input
-                className="modal__input"
-                type="url"
-                name="link"
-                minLength="1"
-                maxLength="30"
-                placeholder="Image URL"
-              />
-            </label>
-            <p className="modal__subtitle">Select the weather type:</p>
-            <div>
-              <div className="modal__radio-button">
-                <label>
-                  {" "}
-                  <input
-                    className="modal__radio-button-icon"
-                    type="radio"
-                    id="hot"
-                    value="hot"
-                    name="button"
-                  />
-                  Hot
-                </label>
-              </div>
-              <div className="modal__radio-button">
-                <label>
-                  {" "}
-                  <input
-                    className="modal__radio-button-icon"
-                    type="radio"
-                    id="warm"
-                    value="warm"
-                    name="button"
-                  />
-                  Warm
-                </label>
-              </div>
-              <div className="modal__radio-button">
-                <label>
-                  {" "}
-                  <input
-                    className="modal__radio-button-icon"
-                    type="radio"
-                    id="cold"
-                    value="cold"
-                    name="button"
-                  />
-                  Cold
-                </label>
-              </div>
-            </div>
-          </ModalWithForm>
+          <AddItemModal
+            handleCloseModal={handleCloseModal}
+            isOpen={activeModal === "create"}
+            onAddItem={onAddItem}
+          />
         )}
         {activeModal === "preview" && (
           <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />

@@ -2,7 +2,7 @@ import "./Header.css";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../../ToggleSwitch/ToggleSwitch";
-// import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = ({ onCreateModal }) => {
   const currentDate = new Date().toLocaleString("default", {
@@ -28,7 +28,9 @@ const Header = ({ onCreateModal }) => {
     <header className="header">
       <div className="header__logo">
         <div>
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
         <div className="header__date">{currentDate}, New York</div>
       </div>
@@ -46,7 +48,9 @@ const Header = ({ onCreateModal }) => {
             + Add clothes
           </button>
         </div>
-        <p>Terrence Tegegne</p>
+        <Link className="header__name" to="/profile">
+          Terrence Tegegne
+        </Link>
         <div>
           <img src={avatar} alt="avatar" />
         </div>

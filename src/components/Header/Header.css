@@ -7,6 +7,11 @@
   padding: 0 20px;
 }
 
+.header__name {
+  text-decoration: none;
+  color: #000;
+}
+
 .header__logo {
   display: flex;
   gap: 20px;
