@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+// import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 // import ToggleSwitch from "../../ToggleSwitch/ToggleSwitch";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
@@ -11,9 +11,15 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../../AddItemModal/AddItemModal";
+import Profile from "../Profile/Profile";
 
 function App() {
   // const weatherTemp = "110";
+  const myStyle = {
+    backgroundColor: "#F3F3F3",
+    backgroundSize: "cover",
+    height: "100vh",
+  };
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
@@ -58,7 +64,7 @@ function App() {
   console.log(currentTemperatureUnit);
 
   return (
-    <div>
+    <div className="app" style={myStyle}>
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
@@ -71,7 +77,9 @@ function App() {
               // temp={temp}
             />
           </Route>
-          <Route path="/profile">Profile</Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
         </Switch>
         <Footer />
         {activeModal === "create" && (
