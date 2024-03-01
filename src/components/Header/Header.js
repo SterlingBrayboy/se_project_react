@@ -10,20 +10,6 @@ const Header = ({ onCreateModal }) => {
     day: "numeric",
   });
 
-  // const [checked, setChecked] = useState(false);
-  // const handleChange = () => {
-  //   setChecked(!checked);
-  // };
-
-  // const Checkbox = ({ label, value, onChange }) => {
-  //   return (
-  //     <label>
-  //       <input type="checkbox" checked={value} onChange={onChange} />
-  //       {label}
-  //     </label>
-  //   );
-  // };
-
   return (
     <header className="header">
       <div className="header__logo">

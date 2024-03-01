@@ -22,6 +22,7 @@ const ItemModal = ({ selectedCard, onClose }) => {
             {" "}
             Weather Type: {selectedCard.weather}{" "}
           </div>
+          <div className="modal__content-delete">Delete item</div>
         </div>
       </div>
     </div>

@@ -1,6 +1,9 @@
 import { weatherOptions } from "../../utils/constants";
 import "./WeatherCard.css";
-// import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import {
+  CurrentTemperatureUnitContext,
+  currentTemperateUnit,
+} from "../../contexts/CurrentTemperatureUnitContext";
 
 const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   const imageSrc = weatherOptions.filter((i) => {
@@ -11,8 +14,16 @@ const WeatherCard = ({ day, type, weatherTemp = "" }) => {
 
   return (
     <section className="weather" id="weather">
-      <div className="weather__info">{weatherTemp}°F</div>
-      <img src={imageSrcUrl} alt="weather banner" className="weather__mural" />
+      <CurrentTemperatureUnitContext.Provider
+        value={weatherTemp.temperature[currentTemperateUnit]}
+      >
+        <div className="weather__info">{weatherTemp}°F</div>
+        <img
+          src={imageSrcUrl}
+          alt="weather banner"
+          className="weather__mural"
+        />
+      </CurrentTemperatureUnitContext.Provider>
     </section>
   );
 };
