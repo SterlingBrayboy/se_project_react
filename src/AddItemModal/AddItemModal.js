@@ -16,7 +16,13 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, link });
+    onAddItem({ name, link, button });
+  };
+
+  const [button, setButton] = useState("");
+  const handleButtonChange = (e) => {
+    console.log(e.target.value);
+    setButton(e.target.value);
   };
 
   return (
@@ -63,6 +69,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               id="hot"
               value="hot"
               name="button"
+              onChange={handleButtonChange}
             />
             Hot
           </label>
@@ -76,6 +83,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               id="warm"
               value="warm"
               name="button"
+              onChange={handleButtonChange}
             />
             Warm
           </label>
@@ -89,6 +97,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               id="cold"
               value="cold"
               name="button"
+              onChange={handleButtonChange}
             />
             Cold
           </label>

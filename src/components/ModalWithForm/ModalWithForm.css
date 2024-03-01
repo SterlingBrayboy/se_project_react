@@ -17,27 +17,28 @@
   border-radius: 20px;
   padding: 28px 28px;
   max-width: 496px;
-  /* height: 436px; */
 }
 
 .modal__form {
   width: 496px;
   display: flex;
   flex-flow: column wrap;
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr); */
 }
 
 .modal__button {
   border: none;
   background: lightgrey;
-  cursor: pointer;
   border-radius: 3px;
   width: 124px;
   height: 36px;
   color: white;
   margin-top: 32px;
+}
+
+.modal__button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 .modal__title {

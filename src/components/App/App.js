@@ -13,12 +13,12 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../../AddItemModal/AddItemModal";
 
 function App() {
-  const weatherTemp = "110";
+  // const weatherTemp = "110";
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
-  // const [value, setValue] = useState(false);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -40,6 +40,10 @@ function App() {
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+  };
+
+  const handleAddItemSubmit = (item) => {
+    setClothingItems([item, ...clothingItems]);
   };
 
   useEffect(() => {
