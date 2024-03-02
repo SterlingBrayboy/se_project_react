@@ -22,6 +22,13 @@ function Main({ weatherTemp, onSelectCard }) {
     return item.weather.toLowerCase() === weatherType;
   });
 
+  console.log({
+    defaultClothingItems,
+    filteredCards,
+    weatherType,
+    weatherTemp,
+  });
+
   return (
     <main className="main">
       <WeatherCard day={true} type="sunny" weatherTemp={temp} />
