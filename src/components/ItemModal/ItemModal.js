@@ -13,16 +13,21 @@ const ItemModal = ({ selectedCard, onClose }) => {
         ></button>
         <img
           className="modal__content-image"
-          src={selectedCard.link}
+          src={selectedCard.imageUrl}
           alt={selectedCard.name}
         />
         <div className="modal__description">
-          <div className="modal__content-name"> {selectedCard.name} </div>
+          <div className="modal__content-name">
+            {" "}
+            {selectedCard.name}
+            <button type="button" className="modal__content-delete">
+              Delete item
+            </button>
+          </div>
           <div className="modal__content-type">
             {" "}
             Weather Type: {selectedCard.weather}{" "}
           </div>
-          <div className="modal__content-delete">Delete item</div>
         </div>
       </div>
     </div>

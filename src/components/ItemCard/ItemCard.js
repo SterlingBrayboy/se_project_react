@@ -3,7 +3,7 @@ const ItemCard = ({ item, onSelectCard }) => {
     <div className="card__area">
       <img
         className="card__image"
-        src={item.link}
+        src={item.imageUrl}
         onClick={() => onSelectCard(item)}
         alt={item.name}
       />

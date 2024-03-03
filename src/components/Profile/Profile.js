@@ -12,7 +12,7 @@ const Profile = () => {
       <button type="button" className="profile__add-button">
         + Add new
       </button>
-      <ClothesSection />
+      {/* <ClothesSection /> */}
     </div>
   );
 };

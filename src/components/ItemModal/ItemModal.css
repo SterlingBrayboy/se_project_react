@@ -10,15 +10,36 @@
   font-family: "Cabinet Grotesk-Bold";
   font-size: 20px;
   padding-left: 32px;
+  padding-right: 32px;
   padding-top: 20px;
   background-color: white;
-  width: 466px;
+  width: 434px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 
 .modal__content-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding-bottom: 12px;
+}
+
+.modal__content-delete {
+  margin: 0;
+  color: #ff4d00;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.modal__content-delete:hover {
+  margin: 0;
+  color: #ff4d00;
+  opacity: 0.6;
+  transition: 0.3s ease-in-out;
+  border: none;
+  background-color: #fff;
 }
 
 .modal__content-type {

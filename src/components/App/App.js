@@ -13,14 +13,16 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import Api from "../../utils/Api";
+import ClothesSection from "../ClothesSection/ClothesSection";
 
 function App() {
   // const weatherTemp = "110";
-  const myStyle = {
-    backgroundColor: "#F3F3F3",
-    backgroundSize: "cover",
-    height: "100vh",
-  };
+  // const myStyle = {
+  //   backgroundColor: "#F3F3F3",
+  //   backgroundSize: "cover",
+  //   backgroundRepeat: "repeat",
+  //   // height: "100vh",
+  // };
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
@@ -50,8 +52,33 @@ function App() {
   };
 
   const handleAddItemSubmit = (item) => {
-    setClothingItems([item, ...clothingItems]);
+    // your function may be named differently
+    api
+      .addItem(item)
+      // use res with setClothingItems
+      .then((res) => {
+        setClothingItems([res, ...clothingItems]);
+        // name:,
+        // imageUrl:,
+        // weather: weather,
+      });
   };
+
+  // const deleteItemSubmit = (item) => {
+  //   setClothingItems([item, ...clothingItems]).remove;
+  // };
+
+  const api = new Api({
+    baseUrl: "http://localhost:3001",
+    // headers: {
+    //   authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
+    //   "Content-Type": "application/json",
+    // },
+  });
+
+  api.getItems().then((res) => {
+    setClothingItems(res);
+  });
 
   useEffect(() => {
     getForecastWeather()
@@ -65,7 +92,7 @@ function App() {
   console.log(currentTemperatureUnit);
 
   return (
-    <div className="app" style={myStyle}>
+    <div className="app">
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >

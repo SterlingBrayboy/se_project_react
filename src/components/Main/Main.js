@@ -9,24 +9,20 @@ function Main({ weatherTemp, onSelectCard }) {
   console.log(currentTemperatureUnit);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 30;
   const weatherType = useMemo(() => {
-    if (weatherTemp >= 86) {
+    if (weatherTemp?.temperature?.[currentTemperatureUnit] >= 86) {
       return "hot";
-    } else if (weatherTemp >= 66 && weatherTemp <= 85) {
+    } else if (
+      weatherTemp?.temperature?.[currentTemperatureUnit] >= 66 &&
+      weatherTemp <= 85
+    ) {
       return "warm";
-    } else if (weatherTemp <= 65) {
+    } else if (weatherTemp?.temperature?.[currentTemperatureUnit] <= 65) {
       return "cold";
     }
   }, [weatherTemp]);
 
   const filteredCards = defaultClothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
-  });
-
-  console.log({
-    defaultClothingItems,
-    filteredCards,
-    weatherType,
-    weatherTemp,
   });
 
   return (

@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin-top: 20px;
   padding: 0 20px;
-  position: relative;
-  top: 570px;
+  /* position: absolute; */
+  /* gap: 1180px; */
+  /* bottom: 40px; */
 }

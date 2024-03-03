@@ -24,8 +24,8 @@ const ToggleSwitch = () => {
       <span
         className={
           currentTemperatureUnit === "F"
-            ? "switch__slider switch__slider-F"
-            : "switch__slider switch__slider-C"
+            ? "switch__slider switch__slider-C"
+            : "switch__slider switch__slider-F"
         }
       ></span>
       <p
