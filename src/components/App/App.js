@@ -13,7 +13,7 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import Api from "../../utils/Api";
-import ClothesSection from "../ClothesSection/ClothesSection";
+// import ClothesSection from "../ClothesSection/ClothesSection";
 
 function App() {
   // const weatherTemp = "110";
@@ -76,7 +76,7 @@ function App() {
     // },
   });
 
-  api.getItems().then((res) => {
+  api.getCards().then((res) => {
     setClothingItems(res);
   });
 
@@ -106,7 +106,7 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <Profile />
+            <Profile clothingItems={clothingItems} />
           </Route>
         </Switch>
         <Footer />

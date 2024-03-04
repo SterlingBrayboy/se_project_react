@@ -1,4 +1,4 @@
-import { defaultClothingItems } from "../../utils/constants";
+// import { defaultClothingItems } from "../../utils/constants";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { useMemo, useContext } from "react";
@@ -21,9 +21,9 @@ function Main({ weatherTemp, onSelectCard }) {
     }
   }, [weatherTemp]);
 
-  const filteredCards = defaultClothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherType;
-  });
+  // const filteredCards = defaultClothingItems.filter((item) => {
+  //   return item.weather.toLowerCase() === weatherType;
+  // });
 
   return (
     <main className="main">
@@ -31,9 +31,9 @@ function Main({ weatherTemp, onSelectCard }) {
       <section id="card" className="card">
         Today is {temp}°F / You may want to wear:
         <div className="card__items">
-          {filteredCards.map((item) => (
+          {/* {filteredCards.map((item) => (
             <ItemCard item={item} onSelectCard={onSelectCard} key={item._id} />
-          ))}
+          ))} */}
         </div>
       </section>
     </main>

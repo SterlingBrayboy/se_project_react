@@ -3,7 +3,7 @@ import avatar from "../../images/avatar.svg";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import "./Profile.css";
 
-const Profile = () => {
+const Profile = ({ clothingItems }) => {
   return (
     <div className="profile">
       <img className="profile__pic" src={avatar} alt="avatar" />
@@ -12,7 +12,7 @@ const Profile = () => {
       <button type="button" className="profile__add-button">
         + Add new
       </button>
-      {/* <ClothesSection /> */}
+      <ClothesSection clothingItems={clothingItems} />
     </div>
   );
 };
