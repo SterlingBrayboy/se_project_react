@@ -21,7 +21,7 @@ function Main({ weatherTemp, onSelectCard }) {
     }
   }, [weatherTemp]);
 
-  // const filteredCards = defaultClothingItems.filter((item) => {
+  // const filteredCards = items.filter((item) => {
   //   return item.weather.toLowerCase() === weatherType;
   // });
 

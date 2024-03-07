@@ -18,14 +18,14 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addItem() {
+  addItem(item) {
     return fetch(this.baseUrl + "/items", {
       method: "POST",
-      //   body: JSON.stringify({
-      //     name: name,
-      //     imageUrl: imageUrl,
-      //     weather: weather,
-      //   }),
+      body: JSON.stringify({
+        name: item.name,
+        imageUrl: item.imageUrl,
+        weather: item.weather,
+      }),
     }).then(this._checkResponse);
   }
 

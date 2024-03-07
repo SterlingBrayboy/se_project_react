@@ -24,6 +24,7 @@ function App() {
   //   // height: "100vh",
   // };
   const [activeModal, setActiveModal] = useState("");
+  // const [submitModal, setSubmitModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -42,6 +43,17 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleAddItemSubmit = (item) => {
+    // setSubmitModal("");
+    api
+      .addItem(item)
+      .then((res) => {
+        setClothingItems([res, ...clothingItems]);
+        console.log(item);
+      })
+      .catch(console.error);
+  };
+
   const onAddItem = (values) => {
     console.log(values);
   };
@@ -51,22 +63,12 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const handleAddItemSubmit = (item) => {
-    // your function may be named differently
-    api
-      .addItem(item)
-      // use res with setClothingItems
-      .then((res) => {
-        setClothingItems([res, ...clothingItems]);
-        // name:,
-        // imageUrl:,
-        // weather: weather,
-      });
-  };
-
   // const deleteItemSubmit = (item) => {
-  //   setClothingItems([item, ...clothingItems]).remove;
-  // };
+  //   api
+  //   .deleteItem(item)
+  //   .then(() => {
+  //   // setClothingItems().remove;
+  // });
 
   const api = new Api({
     baseUrl: "http://localhost:3001",
@@ -76,8 +78,15 @@ function App() {
     // },
   });
 
-  api.getCards().then((res) => {
-    setClothingItems(res);
+  // api.getCards().then((res) => {
+  //   setClothingItems(res);
+  // });
+
+  useEffect(() => {
+    api.getCards().then((res) => {
+      setClothingItems(res);
+      console.log(res);
+    });
   });
 
   useEffect(() => {
@@ -115,6 +124,7 @@ function App() {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
             onAddItem={onAddItem}
+            // handleAddItemSubmit={handleAddItemSubmit}
           />
         )}
         {activeModal === "preview" && (
