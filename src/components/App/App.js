@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-// import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
-// import ToggleSwitch from "../../ToggleSwitch/ToggleSwitch";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
@@ -13,7 +11,10 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import Api from "../../utils/Api";
-// import ClothesSection from "../ClothesSection/ClothesSection";
+
+const api = new Api({
+  baseUrl: "http://localhost:3001",
+});
 
 function App() {
   // const weatherTemp = "110";
@@ -24,7 +25,6 @@ function App() {
   //   // height: "100vh",
   // };
   const [activeModal, setActiveModal] = useState("");
-  // const [submitModal, setSubmitModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -44,7 +44,6 @@ function App() {
   };
 
   const handleAddItemSubmit = (item) => {
-    // setSubmitModal("");
     api
       .addItem(item)
       .then((res) => {
@@ -70,23 +69,14 @@ function App() {
   //   // setClothingItems().remove;
   // });
 
-  const api = new Api({
-    baseUrl: "http://localhost:3001",
-    // headers: {
-    //   authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
-    //   "Content-Type": "application/json",
-    // },
-  });
-
-  // api.getCards().then((res) => {
-  //   setClothingItems(res);
-  // });
-
   useEffect(() => {
-    api.getCards().then((res) => {
-      setClothingItems(res);
-      console.log(res);
-    });
+    api
+      .getCards()
+      .then((res) => {
+        setClothingItems(res);
+        console.log(res);
+      })
+      .catch(console.error);
   });
 
   useEffect(() => {
@@ -108,11 +98,7 @@ function App() {
         <Header onCreateModal={handleCreateModal} temp={temp} />
         <Switch>
           <Route exact path="/">
-            <Main
-              weatherTemp={temp}
-              onSelectCard={handleSelectedCard}
-              // temp={temp}
-            />
+            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
           </Route>
           <Route path="/profile">
             <Profile clothingItems={clothingItems} />
@@ -124,7 +110,6 @@ function App() {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
             onAddItem={onAddItem}
-            // handleAddItemSubmit={handleAddItemSubmit}
           />
         )}
         {activeModal === "preview" && (
