@@ -77,7 +77,7 @@ function App() {
         console.log(res);
       })
       .catch(console.error);
-  });
+  }, []);
 
   useEffect(() => {
     getForecastWeather()
