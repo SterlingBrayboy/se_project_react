@@ -1,5 +1,5 @@
 class Api {
-  constructor(baseUrl) {
+  constructor({ baseUrl }) {
     // constructor body
     this.baseUrl = baseUrl;
   }

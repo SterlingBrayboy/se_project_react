@@ -1,9 +1,23 @@
 .profile {
-  display: flex;
-  flex-direction: row;
-  margin-top: 27px;
+  /* margin-top: 27px; */
   font-family: "Cabinet Grotesk-Bold";
   font-size: 20px;
+}
+
+.profile__options {
+  display: flex;
+  flex-direction: row;
+  width: 210px;
+  position: relative;
+  left: 310px;
+  margin-top: 0;
+}
+
+.profile__info {
+  display: flex;
+  width: 250px;
+  position: relative;
+  top: 55px;
 }
 
 .profile__pic {
@@ -14,7 +28,7 @@
 
 .profile__name {
   padding-left: 16px;
-  padding-right: 116px;
+  margin-bottom: 0;
 }
 
 .profile__add-button {
@@ -22,10 +36,22 @@
   background: none;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.6);
-  padding-left: 20px;
+  margin-left: 20px;
+  padding: 0;
 }
+
+/* .profile__card-section {
+  position: relative;
+  top: 50px;
+  left: 5px;
+} */
 
 .profile__add-button:hover {
   color: #000;
   transition: 0.5s;
+}
+
+.profile__cards {
+  width: 1300px;
+  margin-left: 170px;
 }

@@ -1,18 +1,26 @@
 import React from "react";
-import avatar from "../../images/avatar.svg";
 import ClothesSection from "../ClothesSection/ClothesSection";
+import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 
-const Profile = ({ clothingItems }) => {
+const Profile = ({ clothingItems, onSelectCard }) => {
   return (
     <div className="profile">
-      <img className="profile__pic" src={avatar} alt="avatar" />
-      <p className="profile__name">Terrence Tegegne</p>
-      <p>Your Items</p>
-      <button type="button" className="profile__add-button">
-        + Add new
-      </button>
-      <ClothesSection clothingItems={clothingItems} />
+      <SideBar />
+      <div className="profile__options">
+        <p>Your Items</p>
+        <button type="button" className="profile__add-button">
+          + Add new
+        </button>
+      </div>
+      <div className="profile__cards">
+        <ClothesSection
+          // item={item}
+          clothingItems={clothingItems}
+          onSelectCard={onSelectCard}
+          // key={item._id}
+        />
+      </div>
     </div>
   );
 };
