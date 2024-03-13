@@ -114,6 +114,7 @@ function App() {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
             onAddItem={onAddItem}
+            // onSubmit={handleAddItemSubmit}
           />
         )}
         {activeModal === "preview" && (
