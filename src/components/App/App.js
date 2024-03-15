@@ -14,6 +14,9 @@ import Api from "../../utils/Api";
 
 const api = new Api({
   baseUrl: "http://localhost:3001",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 function App() {
@@ -49,12 +52,14 @@ function App() {
       .then((res) => {
         setClothingItems([res, ...clothingItems]);
         console.log(item);
+        handleCloseModal();
       })
       .catch(console.error);
   };
 
   const onAddItem = (values) => {
     console.log(values);
+    handleAddItemSubmit();
   };
 
   const handleToggleSwitchChange = () => {
@@ -88,7 +93,7 @@ function App() {
       })
       .catch(console.error);
   }, []);
-  console.log(currentTemperatureUnit);
+  // console.log(currentTemperatureUnit);
 
   return (
     <div className="app">
