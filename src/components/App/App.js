@@ -72,6 +72,7 @@ function App() {
   //   .deleteItem(item)
   //   .then(() => {
   //   // setClothingItems().remove;
+  //   console.log(item)
   // });
 
   useEffect(() => {
@@ -118,7 +119,7 @@ function App() {
           <AddItemModal
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
-            onAddItem={onAddItem}
+            onAddItem={handleAddItemSubmit}
             // onSubmit={handleAddItemSubmit}
           />
         )}
