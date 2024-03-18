@@ -57,10 +57,10 @@ function App() {
       .catch(console.error);
   };
 
-  const onAddItem = (values) => {
-    console.log(values);
-    handleAddItemSubmit();
-  };
+  // const onAddItem = (values) => {
+  //   console.log(values);
+  //   handleAddItemSubmit();
+  // };
 
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
@@ -94,7 +94,6 @@ function App() {
       })
       .catch(console.error);
   }, []);
-  // console.log(currentTemperatureUnit);
 
   return (
     <div className="app">
@@ -111,7 +110,10 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <Profile clothingItems={clothingItems} />
+            <Profile
+              clothingItems={clothingItems}
+              onSelectCard={handleSelectedCard}
+            />
           </Route>
         </Switch>
         <Footer />
@@ -120,7 +122,6 @@ function App() {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
             onAddItem={handleAddItemSubmit}
-            // onSubmit={handleAddItemSubmit}
           />
         )}
         {activeModal === "preview" && (

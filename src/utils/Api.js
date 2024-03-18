@@ -18,13 +18,13 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addItem(item) {
+  addItem({ name, imageUrl, weather }) {
     return fetch(this.baseUrl + "/items", {
       method: "POST",
       body: JSON.stringify({
-        name: item.name,
-        imageUrl: item.imageUrl,
-        weather: item.weather,
+        name,
+        imageUrl,
+        weather,
       }),
     }).then(this._checkResponse);
   }
