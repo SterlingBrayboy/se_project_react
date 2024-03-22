@@ -57,23 +57,24 @@ function App() {
       .catch(console.error);
   };
 
-  // const onAddItem = (values) => {
-  //   console.log(values);
-  //   handleAddItemSubmit();
-  // };
-
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  // const deleteItemSubmit = (item) => {
-  //   api
-  //   .deleteItem(item)
-  //   .then(() => {
-  //   // setClothingItems().remove;
-  //   console.log(item)
-  // });
+  const deleteItemSubmit = (item) => {
+    api
+      .deleteItem(item._id)
+      .then(() => {
+        const newClothingItems = clothingItems.filter((item) => {
+          if (item === item._id) {
+            console.log(item);
+          }
+          setClothingItems(newClothingItems);
+        });
+      })
+      .catch(console.error);
+  };
 
   useEffect(() => {
     api
@@ -125,7 +126,11 @@ function App() {
           />
         )}
         {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+          <ItemModal
+            selectedCard={selectedCard}
+            onClose={handleCloseModal}
+            onClick={deleteItemSubmit}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>

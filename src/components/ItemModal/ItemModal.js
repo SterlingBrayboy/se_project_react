@@ -20,7 +20,11 @@ const ItemModal = ({ selectedCard, onClose }) => {
           <div className="modal__content-name">
             {" "}
             {selectedCard.name}
-            <button type="button" className="modal__content-delete">
+            <button
+              type="button"
+              className="modal__content-delete"
+              onClick={onClose}
+            >
               Delete item
             </button>
           </div>

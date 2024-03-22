@@ -15,7 +15,7 @@ const ClothesSection = ({ weatherTemp, clothingItems, onSelectCard }) => {
     return clothingItems;
   });
 
-  console.log(profileCards);
+  // console.log(profileCards);
 
   return (
     <div>

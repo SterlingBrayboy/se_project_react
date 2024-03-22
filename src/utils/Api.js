@@ -1,7 +1,8 @@
 class Api {
-  constructor({ baseUrl }) {
+  constructor({ baseUrl, headers }) {
     // constructor body
     this.baseUrl = baseUrl;
+    this._headers = headers;
   }
 
   _checkResponse(res) {
@@ -21,6 +22,7 @@ class Api {
   addItem({ name, imageUrl, weather }) {
     return fetch(this.baseUrl + "/items", {
       method: "POST",
+      headers: this._headers,
       body: JSON.stringify({
         name,
         imageUrl,
