@@ -67,11 +67,11 @@ function App() {
       .deleteItem(item._id)
       .then(() => {
         const newClothingItems = clothingItems.filter((item) => {
-          if (item === item._id) {
-            console.log(item);
+          if (clothingItems.filter((i) => i === item._id)) {
+            return true;
           }
-          setClothingItems(newClothingItems);
         });
+        setClothingItems(newClothingItems);
       })
       .catch(console.error);
   };
