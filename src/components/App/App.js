@@ -70,6 +70,7 @@ function App() {
           if (clothingItems.filter((i) => i === item._id)) {
             return true;
           }
+          console.log(newClothingItems);
         });
         setClothingItems(newClothingItems);
       })
