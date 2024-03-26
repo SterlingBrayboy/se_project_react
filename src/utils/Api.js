@@ -31,8 +31,8 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  deleteItem() {
-    return fetch(this.baseUrl + "/items/:id", {
+  deleteItem(id) {
+    return fetch(this.baseUrl + "/items/" + id, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);

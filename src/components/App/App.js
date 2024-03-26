@@ -62,17 +62,16 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const deleteItemSubmit = (item) => {
+  const deleteItemSubmit = () => {
     api
-      .deleteItem(item._id)
+      .deleteItem(selectedCard._id)
       .then(() => {
         const newClothingItems = clothingItems.filter((item) => {
-          if (clothingItems.filter((i) => i === item._id)) {
-            return true;
-          }
-          console.log(newClothingItems);
+          return item._id !== selectedCard._id;
         });
+        // console.log(newClothingItems);
         setClothingItems(newClothingItems);
+        handleCloseModal();
       })
       .catch(console.error);
   };
@@ -130,7 +129,7 @@ function App() {
           <ItemModal
             selectedCard={selectedCard}
             onClose={handleCloseModal}
-            onClick={deleteItemSubmit}
+            onDelete={deleteItemSubmit}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

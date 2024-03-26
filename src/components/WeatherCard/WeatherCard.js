@@ -16,7 +16,9 @@ const WeatherCard = ({ day, type, weatherTemp = "" }) => {
       <CurrentTemperatureUnitContext.Provider
         value={CurrentTemperatureUnitContext[currentTemperatureUnit]}
       >
-        <div className="weather__info">{weatherTemp}°F</div>
+        <div className="weather__info">
+          {weatherTemp} {currentTemperatureUnit}
+        </div>
         <img
           src={imageSrcUrl}
           alt="weather banner"
