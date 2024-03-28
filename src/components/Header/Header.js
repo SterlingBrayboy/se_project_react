@@ -3,13 +3,17 @@ import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
-// import { data } from "../../utils/weatherApi";
+import { parseWeatherData } from "../../utils/weatherApi";
 
 const Header = ({ onCreateModal }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+
+  const name = parseWeatherData(weather.location);
+  // const name = parseWeatherData(data.location);
+  // const name = weather.location
 
   return (
     <header className="header">
