@@ -3,6 +3,7 @@ import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+// import { data } from "../../utils/weatherApi";
 
 const Header = ({ onCreateModal }) => {
   const currentDate = new Date().toLocaleString("default", {
@@ -18,7 +19,7 @@ const Header = ({ onCreateModal }) => {
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="header__date">{currentDate}, New York</div>
+        <div className="header__date">{currentDate},</div>
       </div>
       <div className="header__avatar-logo">
         <ToggleSwitch />

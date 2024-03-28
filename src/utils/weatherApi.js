@@ -1,7 +1,7 @@
 import { toBeEmpty } from "@testing-library/jest-dom/dist/matchers";
 
-const latitude = 44.34;
-const longitude = 10.99;
+const latitude = 33.4484;
+const longitude = -112.074036;
 const APIkey = "8c165130be21cc7ed5c265c80e9180d0";
 
 export const getForecastWeather = () => {
@@ -26,6 +26,6 @@ export const parseWeatherData = (data) => {
       C: Math.round(((temperature - 32) * 5) / 9),
     },
   };
-  // console.log(weather);
+  console.log(data);
   return weather;
 };
