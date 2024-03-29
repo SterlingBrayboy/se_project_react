@@ -4,9 +4,7 @@ import { useMemo, useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 const ClothesSection = ({ clothingItems, onSelectCard }) => {
-  const profileCards = clothingItems.filter(() => {
-    return clothingItems;
-  });
+  const profileCards = clothingItems;
 
   return (
     <div className="card__items">

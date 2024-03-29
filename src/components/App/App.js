@@ -99,7 +99,7 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <Header onCreateModal={handleCreateModal} location={temp} />
+        <Header onCreateModal={handleCreateModal} location={temp.location} />
         <Switch>
           <Route exact path="/">
             <Main

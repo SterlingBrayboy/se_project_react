@@ -13,14 +13,10 @@ const WeatherCard = ({ day, type, weatherTemp = "" }) => {
 
   return (
     <section className="weather" id="weather">
-      {/* <CurrentTemperatureUnitContext.Provider */}
-      {/* value={CurrentTemperatureUnitContext[currentTemperatureUnit]}
-      > */}
       <div className="weather__info">
         {weatherTemp} {currentTemperatureUnit}
       </div>
       <img src={imageSrcUrl} alt="weather banner" className="weather__mural" />
-      {/* </CurrentTemperatureUnitContext.Provider> */}
     </section>
   );
 };

@@ -19,7 +19,7 @@ const Header = ({ onCreateModal, location }) => {
           </Link>
         </div>
         <div className="header__date">
-          {currentDate}, {location.location}
+          {currentDate}, {location}
         </div>
       </div>
       <div className="header__avatar-logo">

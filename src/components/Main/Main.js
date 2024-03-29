@@ -5,16 +5,22 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 
 function Main({ weatherTemp, onSelectCard, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 30;
+  const temp = weatherTemp?.temperature?.[currentTemperatureUnit];
   const weatherType = useMemo(() => {
-    if (weatherTemp?.temperature?.[currentTemperatureUnit] >= 70 || 21.11) {
+    if (
+      (temp >= 70 && currentTemperatureUnit === "F") ||
+      (temp >= 21.11 && currentTemperatureUnit === "C")
+    ) {
       return "hot";
     } else if (
-      weatherTemp?.temperature?.[currentTemperatureUnit] >= 50 &&
-      weatherTemp <= 85
+      (temp >= 60 && currentTemperatureUnit === "F") ||
+      (temp >= 15.56 && currentTemperatureUnit === "C")
     ) {
       return "warm";
-    } else if (weatherTemp?.temperature?.[currentTemperatureUnit] <= 45) {
+    } else if (
+      (temp <= 45 && currentTemperatureUnit === "F") ||
+      (temp >= 7.22 && currentTemperatureUnit === "C")
+    ) {
       return "cold";
     }
   }, [weatherTemp]);

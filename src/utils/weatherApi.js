@@ -1,7 +1,7 @@
 import { toBeEmpty } from "@testing-library/jest-dom/dist/matchers";
 
-const latitude = 33.4484;
-const longitude = -112.074036;
+const latitude = 17.99702;
+const longitude = -76.79358;
 const APIkey = "8c165130be21cc7ed5c265c80e9180d0";
 
 export const getForecastWeather = () => {
