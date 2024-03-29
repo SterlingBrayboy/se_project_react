@@ -30,6 +30,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
+  const [location, setLocation] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
@@ -69,7 +70,6 @@ function App() {
         const newClothingItems = clothingItems.filter((item) => {
           return item._id !== selectedCard._id;
         });
-        // console.log(newClothingItems);
         setClothingItems(newClothingItems);
         handleCloseModal();
       })
@@ -90,8 +90,10 @@ function App() {
     getForecastWeather()
       .then((data) => {
         const temperature = parseWeatherData(data);
-        console.log(temperature);
         setTemp(temperature);
+        // const city = parseWeatherData(data);
+        // setLocation(city);
+        // console.log(city);
       })
       .catch(console.error);
   }, []);
@@ -101,7 +103,7 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <Header onCreateModal={handleCreateModal} temp={temp} />
+        <Header onCreateModal={handleCreateModal} location={temp} />
         <Switch>
           <Route exact path="/">
             <Main

@@ -3,16 +3,14 @@ import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-// import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 
-const Header = ({ onCreateModal, temp }) => {
+const Header = ({ onCreateModal, location }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
 
-  console.log(temp);
+  console.log(location);
 
   return (
     <header className="header">
@@ -23,7 +21,7 @@ const Header = ({ onCreateModal, temp }) => {
           </Link>
         </div>
         <div className="header__date">
-          {currentDate}, {temp}
+          {currentDate}, {location.location}
         </div>
       </div>
       <div className="header__avatar-logo">

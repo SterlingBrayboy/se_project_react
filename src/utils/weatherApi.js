@@ -7,17 +7,13 @@ const APIkey = "8c165130be21cc7ed5c265c80e9180d0";
 export const getForecastWeather = () => {
   const weatherApi = fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-  )
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-    .then((data) => {
-      return parseWeatherData(data);
-    });
+  ).then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+  });
   return weatherApi;
 };
 
