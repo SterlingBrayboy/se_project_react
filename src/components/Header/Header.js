@@ -10,8 +10,6 @@ const Header = ({ onCreateModal, location }) => {
     day: "numeric",
   });
 
-  console.log(location);
-
   return (
     <header className="header">
       <div className="header__logo">
