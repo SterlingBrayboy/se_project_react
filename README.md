@@ -8,4 +8,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Back-End
 
-You can find the BACKEND for this application here: [https://github.com/SterlingBrayboy/se_project_exp](https://github.com/SterlingBrayboy/se_project_exp)
+You can find the Back-End for this application [here](https://github.com/SterlingBrayboy/se_project_exp).
