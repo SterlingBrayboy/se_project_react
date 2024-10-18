@@ -40,7 +40,12 @@ const Header = ({ onCreateModal, location }) => {
           Terrence Tegegne
         </Link>
         <div>
-          <img src={avatar} alt="avatar" />
+          <img
+            src={avatar}
+            className="header__avatar-logo"
+            alt="avatar"
+            onClick={onCreateModal}
+          />
         </div>
       </div>
     </header>

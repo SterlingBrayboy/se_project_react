@@ -9,6 +9,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import LoginModal from "../LoginModal/LoginModal";
 import Profile from "../Profile/Profile";
 import Api from "../../utils/Api";
 
@@ -39,6 +40,10 @@ function App() {
 
   const handleCloseModal = () => {
     setActiveModal("");
+  };
+
+  const handleLoginModal = () => {
+    setActiveModal("create");
   };
 
   const handleSelectedCard = (card) => {
@@ -129,6 +134,13 @@ function App() {
             selectedCard={selectedCard}
             onClose={handleCloseModal}
             onDelete={deleteItemSubmit}
+          />
+        )}
+        {activeModal === "create" && (
+          <LoginModal
+            handleCloseModal={handleCloseModal}
+            isOpen={activeModal === "login"}
+            onCreateModal={handleLoginModal}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
