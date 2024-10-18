@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ handleCloseModal, isOpen }) => {
+const LoginModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     console.log(e.target.value);
@@ -14,17 +14,17 @@ const LoginModal = ({ handleCloseModal, isOpen }) => {
   //     setimageUrl(e.target.value);
   //   };
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     onAddItem({ name, avatar, email, password });
-  //   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddItem({ name, avatar, email, password });
+  };
 
   return (
     <ModalWithForm
       title="Login"
       onClose={handleCloseModal}
       isOpen={isOpen}
-      //   onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <label>
         Email
