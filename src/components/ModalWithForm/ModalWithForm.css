@@ -58,8 +58,8 @@
   flex-direction: column;
   border: none;
   border-bottom: 1px solid #000;
-  max-width: 496px;
-  width: 100%;
+  /* max-width: 496px; */
+  width: 440px;
   margin-bottom: 24px;
   padding: 8px 0;
   outline-style: none;

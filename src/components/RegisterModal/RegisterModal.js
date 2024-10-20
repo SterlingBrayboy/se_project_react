@@ -1,29 +1,88 @@
-// import "./RegisterModal.css";
+import React, { useState } from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-// const RegisterModal = ({
-//   children,
-//   buttonText = "Add garment",
-//   title,
-//   onClose,
-//   name,
-//   isOpen,
-//   onSubmit,
-// }) => {
-//   // console.log("RegisterModal");
-//   return (
-//     <div className={`modal modal_type_${name}`}>
-//       <div className="modal__content">
-//         <form onSubmit={onSubmit} className="modal__form">
-//           <button className="modal__close" type="button" onClick={onClose} />
-//           <h3 className="modal__title"> {title} </h3>
-//           {children}
-//           <button type="submit" className="modal__button">
-//             {buttonText}
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
+const RegisterModal = ({ handleCloseModal, onAddItem, isOpen }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [avatar, setAvatar] = useState("");
+  const handleNameChange = (e) => {
+    console.log(e.target.value);
+    setName(e.target.value);
+    setPassword(e.target.value);
+    setEmail(e.target.value);
+    setAvatar(e.target.value);
+  };
 
-// export default RegisterModal;
+  //   const [imageUrl, setimageUrl] = useState("");
+  //   const handleUrlChange = (e) => {
+  //     console.log(e.target.value);
+  //     setimageUrl(e.target.value);
+  //   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddItem({ name, avatar, email, password });
+  };
+
+  return (
+    <ModalWithForm
+      title="Sign Up"
+      onClose={handleCloseModal}
+      isOpen={isOpen}
+      onSubmit={handleSubmit}
+      buttonText="Sign Up"
+    >
+      <label>
+        Email
+        <input
+          className="modal__input"
+          type="email"
+          name="email"
+          minLength="1"
+          maxLength="30"
+          placeholder="Email"
+          value={email}
+          onChange={handleNameChange}
+        />
+      </label>
+      <label>
+        Password
+        <input
+          className="modal__input"
+          type="password"
+          name="password"
+          minLength="1"
+          placeholder="Password"
+          value={password}
+        />
+      </label>
+      <label>
+        Name
+        <input
+          className="modal__input"
+          type="text"
+          name="name"
+          minLength="1"
+          maxLength="30"
+          placeholder="Name"
+          value={name}
+          onChange={handleNameChange}
+        />
+      </label>
+      <label>
+        Avatar URL
+        <input
+          className="modal__input"
+          type="url"
+          name="link"
+          minLength="1"
+          placeholder="Avatar URL"
+          value={avatar}
+        />
+      </label>
+    </ModalWithForm>
+  );
+};
+
+export default RegisterModal;

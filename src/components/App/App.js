@@ -9,9 +9,11 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import LoginModal from "../LoginModal/LoginModal";
+// import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 import Profile from "../Profile/Profile";
 import Api from "../../utils/Api";
+import Auth from "../../utils/auth";
 
 const api = new Api({
   baseUrl: "http://localhost:3001",
@@ -20,36 +22,46 @@ const api = new Api({
   },
 });
 
+const auth = new Auth({
+  baseUrl: "http://localhost:3001",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 function App() {
-  // const weatherTemp = "110";
-  // const myStyle = {
-  //   backgroundColor: "#F3F3F3",
-  //   backgroundSize: "cover",
-  //   backgroundRepeat: "repeat",
-  //   // height: "100vh",
-  // };
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
+  // OPEN MODAL
+
   const handleCreateModal = () => {
     setActiveModal("create");
   };
+
+  // CLOSE MODAL
 
   const handleCloseModal = () => {
     setActiveModal("");
   };
 
-  const handleLoginModal = () => {
+  // OPEN REGISTER MODAL
+
+  const handleRegisterModal = () => {
     setActiveModal("create");
   };
+
+  // PREVIEW CARD
 
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
   };
+
+  // ADD ITEM FORM SUBMIT
 
   const handleAddItemSubmit = (item) => {
     api
@@ -62,10 +74,38 @@ function App() {
       .catch(console.error);
   };
 
+  // REGISTRATION HANDLER
+
+  const HandleRegistration = ({ name, avatar, email, password }) => {
+    if (name && avatar && email && password) {
+      auth
+        .registerUser({ name, avatar, email, password })
+        .then(() => {
+          handleCloseModal();
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
+  const HandleLogin = ({ email, password }) => {
+    if (email && password) {
+      auth
+        .loginUser({ email, password })
+        .then(() => {
+          handleCloseModal();
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
+  // TEMPERATURE CHANGE HANDLER
+
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
+
+  // DELETE ITEM SUBMIT HANDLER
 
   const deleteItemSubmit = () => {
     api
@@ -137,10 +177,10 @@ function App() {
           />
         )}
         {activeModal === "create" && (
-          <LoginModal
+          <RegisterModal
             handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "login"}
-            onCreateModal={handleLoginModal}
+            isOpen={activeModal === "create"}
+            onCreateModal={handleRegisterModal}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
