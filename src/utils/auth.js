@@ -42,6 +42,14 @@ class Auth {
       .then(this._addToStorage)
       .then(this._checkResponse);
   }
+
+  verifyToken(token) {
+    return fetch(this.baseUrl + "/users/me", {
+      method: "GET",
+      headers: this._headers,
+      authorization: `Bearer ${token}`,
+    }).then(this._checkResponse);
+  }
 }
 
 export default Auth;

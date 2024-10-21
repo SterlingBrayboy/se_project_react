@@ -5,6 +5,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+// import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
@@ -34,6 +35,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  // const [currentUser, setCurrentUser] = useState("");
   const [clothingItems, setClothingItems] = useState([]);
 
   // OPEN MODAL
@@ -87,6 +89,8 @@ function App() {
     }
   };
 
+  // LOGIN HANDLER
+
   const HandleLogin = ({ email, password }) => {
     if (email && password) {
       auth
@@ -139,52 +143,71 @@ function App() {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.setItem("jwt");
+
+    if (token) {
+      // Call a function to verify the token
+      auth
+        .verifyToken(token)
+        .then((user) => {
+          // Handle successful verification
+          auth.registerUser(user);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, []);
+
   return (
-    <div className="app">
-      <CurrentTemperatureUnitContext.Provider
-        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-      >
-        <Header onCreateModal={handleCreateModal} location={temp.location} />
-        <Switch>
-          <Route exact path="/">
-            <Main
-              weatherTemp={temp}
-              onSelectCard={handleSelectedCard}
-              clothingItems={clothingItems}
+    <CurrentUserContext.Provider value={{ currentUser }}>
+      <div className="app">
+        <CurrentTemperatureUnitContext.Provider
+          value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+        >
+          <Header onCreateModal={handleCreateModal} location={temp.location} />
+          <Switch>
+            <Route exact path="/">
+              <Main
+                weatherTemp={temp}
+                onSelectCard={handleSelectedCard}
+                clothingItems={clothingItems}
+              />
+            </Route>
+            <Route path="/profile">
+              <Profile
+                clothingItems={clothingItems}
+                onSelectCard={handleSelectedCard}
+                onCreateModal={handleCreateModal}
+              />
+            </Route>
+          </Switch>
+          <Footer />
+          {activeModal === "create" && (
+            <AddItemModal
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "create"}
+              onAddItem={handleAddItemSubmit}
             />
-          </Route>
-          <Route path="/profile">
-            <Profile
-              clothingItems={clothingItems}
-              onSelectCard={handleSelectedCard}
-              onCreateModal={handleCreateModal}
+          )}
+          {activeModal === "preview" && (
+            <ItemModal
+              selectedCard={selectedCard}
+              onClose={handleCloseModal}
+              onDelete={deleteItemSubmit}
             />
-          </Route>
-        </Switch>
-        <Footer />
-        {activeModal === "create" && (
-          <AddItemModal
-            handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "create"}
-            onAddItem={handleAddItemSubmit}
-          />
-        )}
-        {activeModal === "preview" && (
-          <ItemModal
-            selectedCard={selectedCard}
-            onClose={handleCloseModal}
-            onDelete={deleteItemSubmit}
-          />
-        )}
-        {activeModal === "create" && (
-          <RegisterModal
-            handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "create"}
-            onCreateModal={handleRegisterModal}
-          />
-        )}
-      </CurrentTemperatureUnitContext.Provider>
-    </div>
+          )}
+          {activeModal === "create" && (
+            <RegisterModal
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "create"}
+              onCreateModal={handleRegisterModal}
+            />
+          )}
+        </CurrentTemperatureUnitContext.Provider>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 
