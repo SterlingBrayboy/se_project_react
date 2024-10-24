@@ -56,19 +56,19 @@ function App() {
   // OPEN REGISTER MODAL
 
   const handleRegisterModal = () => {
-    setActiveModal("create");
+    setActiveModal("register");
   };
 
   // OPEN LOGIN MODAL
 
   const handleLoginModal = () => {
-    setActiveModal("create");
+    setActiveModal("login");
   };
 
   // OPEN EDIT MODAL
 
   const handleEditModal = () => {
-    setActiveModal("create");
+    setActiveModal("edit");
   };
 
   // PREVIEW CARD
@@ -260,27 +260,27 @@ function App() {
               onDelete={deleteItemSubmit}
             />
           )}
-          {activeModal === "create" && (
+          {activeModal === "register" && (
             <RegisterModal
               handleRegistration={HandleRegistration}
               handleCloseModal={handleCloseModal}
-              isOpen={activeModal === "create"}
+              isOpen={activeModal === "register"}
               onCreateModal={handleRegisterModal}
             />
           )}
-          {activeModal === "create" && (
+          {activeModal === "login" && (
             <LoginModal
               HandleLogin={HandleLogin}
               handleCloseModal={handleCloseModal}
-              isOpen={activeModal === "create"}
+              isOpen={activeModal === "login"}
               onCreateModal={handleLoginModal}
             />
           )}
-          {activeModal === "create" && (
+          {activeModal === "edit" && (
             <EditProfileModal
               HandleEditProfile={HandleEditProfile}
               handleCloseModal={handleCloseModal}
-              isOpen={activeModal === "create"}
+              isOpen={activeModal === "edit"}
               onCreateModal={handleEditModal}
             />
           )}
