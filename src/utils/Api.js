@@ -37,6 +37,22 @@ class Api {
       headers: this._headers,
     }).then(this._checkResponse);
   }
+
+  addCardLike(id, token) {
+    return fetch(this.baseUrl, +"/items/" + id, {
+      method: "POST",
+      headers: this._headers,
+      authorization: `Bearer ${token}`,
+    }).then(this._checkResponse);
+  }
+
+  removeCardLike(id, token) {
+    return fetch(this.baseUrl, +"/items/" + id, {
+      method: "POST",
+      headers: this._headers,
+      authorization: `Bearer ${token}`,
+    }).then(this._checkResponse);
+  }
 }
 
 export default Api;

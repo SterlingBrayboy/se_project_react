@@ -1,11 +1,12 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-// import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
@@ -35,8 +36,9 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  // const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState([]);
   const [clothingItems, setClothingItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   // OPEN MODAL
 
@@ -74,6 +76,34 @@ function App() {
         handleCloseModal();
       })
       .catch(console.error);
+  };
+
+  // LIKE HANDLER
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    // Check if this card is now liked
+    isLiked
+      ? // if so, send a request to add the user's id to the card's likes array
+        api
+          // the first argument is the card's id
+          .addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((c) => (c._id === id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err))
+      : // if not, send a request to remove the user's id from the card's likes array
+        api
+          // the first argument is the card's id
+          .removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((c) => (c._id === id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err));
   };
 
   // REGISTRATION HANDLER
@@ -144,7 +174,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const token = localStorage.setItem("jwt");
+    const token = auth._addToStorage;
 
     if (token) {
       // Call a function to verify the token
@@ -152,7 +182,7 @@ function App() {
         .verifyToken(token)
         .then((user) => {
           // Handle successful verification
-          auth.registerUser(user);
+          setCurrentUser(user);
         })
         .catch((err) => {
           console.error(err);
@@ -173,9 +203,15 @@ function App() {
                 weatherTemp={temp}
                 onSelectCard={handleSelectedCard}
                 clothingItems={clothingItems}
+                onCardLike={handleCardLike}
               />
             </Route>
             <Route path="/profile">
+              {/* {isLoggedIn ? (
+                <Redirect to="/profile" />
+              ) : (
+                <Redirect to="/login" />
+              )} */}
               <Profile
                 clothingItems={clothingItems}
                 onSelectCard={handleSelectedCard}
@@ -200,6 +236,7 @@ function App() {
           )}
           {activeModal === "create" && (
             <RegisterModal
+              handleRegistration={HandleRegistration}
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "create"}
               onCreateModal={handleRegisterModal}

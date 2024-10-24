@@ -9,8 +9,9 @@
   flex-direction: row;
   width: 210px;
   position: relative;
-  left: 310px;
+  left: 400px;
   margin-top: 0;
+  padding-top: 15px;
 }
 
 .profile__info {
@@ -21,7 +22,9 @@
 }
 
 .profile__pic {
-  padding-left: 20px;
+  /* padding-left: 20px;
+  padding-bottom: 20px; */
+  margin-left: 20px;
   height: 56px;
   width: 56px;
 }
@@ -29,6 +32,36 @@
 .profile__name {
   padding-left: 16px;
   margin-bottom: 0;
+  padding-top: 15px;
+}
+
+.profile__account-options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.profile__signout-button {
+  display: flex;
+  justify-content: flex-start;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  margin-left: 20px;
+  padding: 0;
+}
+
+.profile__edit-button {
+  display: flex;
+  justify-content: flex-start;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  margin-left: 20px;
+  padding: 0;
 }
 
 .profile__add-button {

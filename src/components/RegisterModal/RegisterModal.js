@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ handleCloseModal, onAddItem, isOpen }) => {
+const RegisterModal = ({
+  handleCloseModal,
+  onAddItem,
+  isOpen,
+  handleRegistration,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,8 +14,17 @@ const RegisterModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const handleNameChange = (e) => {
     console.log(e.target.value);
     setName(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    console.log(e.target.value);
     setPassword(e.target.value);
+  };
+  const handleEmailChange = (e) => {
+    console.log(e.target.value);
     setEmail(e.target.value);
+  };
+  const handleAvatarChange = (e) => {
+    console.log(e.target.value);
     setAvatar(e.target.value);
   };
 
@@ -22,7 +36,7 @@ const RegisterModal = ({ handleCloseModal, onAddItem, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, avatar, email, password });
+    handleRegistration({ name, avatar, email, password });
   };
 
   return (
@@ -43,7 +57,7 @@ const RegisterModal = ({ handleCloseModal, onAddItem, isOpen }) => {
           maxLength="30"
           placeholder="Email"
           value={email}
-          onChange={handleNameChange}
+          onChange={handleEmailChange}
         />
       </label>
       <label>
@@ -55,6 +69,7 @@ const RegisterModal = ({ handleCloseModal, onAddItem, isOpen }) => {
           minLength="1"
           placeholder="Password"
           value={password}
+          onChange={handlePasswordChange}
         />
       </label>
       <label>
@@ -79,6 +94,7 @@ const RegisterModal = ({ handleCloseModal, onAddItem, isOpen }) => {
           minLength="1"
           placeholder="Avatar URL"
           value={avatar}
+          onChange={handleAvatarChange}
         />
       </label>
     </ModalWithForm>
