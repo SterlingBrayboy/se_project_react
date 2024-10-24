@@ -21,7 +21,7 @@ const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
         <button
           type="button"
           className="profile__edit-button"
-          // onClick={onCreateModal}
+          onClick={onCreateModal}
         >
           Change Profile Data
         </button>

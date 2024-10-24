@@ -48,7 +48,7 @@ const RegisterModal = ({
       buttonText="Sign Up"
     >
       <label>
-        Email
+        Email *
         <input
           className="modal__input"
           type="email"
@@ -61,7 +61,7 @@ const RegisterModal = ({
         />
       </label>
       <label>
-        Password
+        Password *
         <input
           className="modal__input"
           type="password"
@@ -73,7 +73,7 @@ const RegisterModal = ({
         />
       </label>
       <label>
-        Name
+        Name *
         <input
           className="modal__input"
           type="text"
@@ -86,7 +86,7 @@ const RegisterModal = ({
         />
       </label>
       <label>
-        Avatar URL
+        Avatar URL *
         <input
           className="modal__input"
           type="url"

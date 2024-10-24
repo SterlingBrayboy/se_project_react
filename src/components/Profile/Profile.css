@@ -84,6 +84,16 @@
   transition: 0.5s;
 }
 
+.profile__edit-button:hover {
+  color: #000;
+  transition: 0.5s;
+}
+
+.profile__signout-button:hover {
+  color: #000;
+  transition: 0.5s;
+}
+
 .profile__cards {
   width: 1300px;
   margin-left: 170px;

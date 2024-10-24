@@ -11,8 +11,9 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../AddItemModal/AddItemModal";
-// import LoginModal from "../LoginModal/LoginModal";
+import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import Profile from "../Profile/Profile";
 import Api from "../../utils/Api";
 import Auth from "../../utils/auth";
@@ -55,6 +56,18 @@ function App() {
   // OPEN REGISTER MODAL
 
   const handleRegisterModal = () => {
+    setActiveModal("create");
+  };
+
+  // OPEN LOGIN MODAL
+
+  const handleLoginModal = () => {
+    setActiveModal("create");
+  };
+
+  // OPEN EDIT MODAL
+
+  const handleEditModal = () => {
     setActiveModal("create");
   };
 
@@ -125,6 +138,19 @@ function App() {
     if (email && password) {
       auth
         .loginUser({ email, password })
+        .then(() => {
+          handleCloseModal();
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
+  // EDIT PROFILE HANDLER
+
+  const HandleEditProfile = ({ name, avatar }) => {
+    if (name && avatar) {
+      api
+        .editUser({ name, avatar })
         .then(() => {
           handleCloseModal();
         })
@@ -240,6 +266,22 @@ function App() {
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "create"}
               onCreateModal={handleRegisterModal}
+            />
+          )}
+          {activeModal === "create" && (
+            <LoginModal
+              HandleLogin={HandleLogin}
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "create"}
+              onCreateModal={handleLoginModal}
+            />
+          )}
+          {activeModal === "create" && (
+            <EditProfileModal
+              HandleEditProfile={HandleEditProfile}
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "create"}
+              onCreateModal={handleEditModal}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>

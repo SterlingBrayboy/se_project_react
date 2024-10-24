@@ -53,6 +53,17 @@ class Api {
       authorization: `Bearer ${token}`,
     }).then(this._checkResponse);
   }
+
+  editUser(name, avatar) {
+    return fetch(this.baseUrl, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        avatar,
+      }),
+    }).then(this._checkResponse);
+  }
 }
 
 export default Api;
