@@ -39,7 +39,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState([]);
   const [clothingItems, setClothingItems] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   // OPEN MODAL
 
@@ -251,6 +251,7 @@ function App() {
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "create"}
               onAddItem={handleAddItemSubmit}
+              onCreateModal={handleCreateModal}
             />
           )}
           {activeModal === "preview" && (
@@ -262,25 +263,25 @@ function App() {
           )}
           {activeModal === "register" && (
             <RegisterModal
-              handleRegistration={HandleRegistration}
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "register"}
+              handleRegistration={HandleRegistration}
               onCreateModal={handleRegisterModal}
             />
           )}
           {activeModal === "login" && (
             <LoginModal
-              HandleLogin={HandleLogin}
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "login"}
+              HandleLogin={HandleLogin}
               onCreateModal={handleLoginModal}
             />
           )}
           {activeModal === "edit" && (
             <EditProfileModal
-              HandleEditProfile={HandleEditProfile}
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "edit"}
+              HandleEditProfile={HandleEditProfile}
               onCreateModal={handleEditModal}
             />
           )}
