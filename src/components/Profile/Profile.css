@@ -4,52 +4,57 @@
   font-size: 20px;
 }
 
-.profile__options {
+.profile__items {
   display: flex;
   flex-direction: row;
-  width: 210px;
+  max-width: 210px;
   position: relative;
   left: 400px;
+  top: -75px;
   margin-top: 0;
   padding-top: 15px;
 }
 
 .profile__info {
-  display: flex;
-  width: 250px;
+  max-width: 360px;
   position: relative;
   top: 55px;
 }
 
 .profile__pic {
-  /* padding-left: 20px;
-  padding-bottom: 20px; */
   margin-left: 20px;
   height: 56px;
   width: 56px;
 }
 
 .profile__name {
-  padding-left: 16px;
+  display: flex;
+  align-items: center;
   margin-bottom: 0;
-  padding-top: 15px;
+  padding-left: 15px;
 }
 
-.profile__account-options {
+.profile__user-buttons {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  max-width: 200px;
+  margin-left: 20px;
   gap: 10px;
 }
 
-.profile__signout-button {
+.profile__user {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile__logout-button {
   display: flex;
   justify-content: flex-start;
   border: none;
   background: none;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.6);
-  margin-left: 20px;
   padding: 0;
 }
 
@@ -60,7 +65,6 @@
   background: none;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.6);
-  margin-left: 20px;
   padding: 0;
 }
 
@@ -73,12 +77,6 @@
   padding: 0;
 }
 
-/* .profile__card-section {
-  position: relative;
-  top: 50px;
-  left: 5px;
-} */
-
 .profile__add-button:hover {
   color: #000;
   transition: 0.5s;
@@ -89,7 +87,7 @@
   transition: 0.5s;
 }
 
-.profile__signout-button:hover {
+.profile__logout-button:hover {
   color: #000;
   transition: 0.5s;
 }

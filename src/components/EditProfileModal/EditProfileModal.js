@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const EditProfileModal = ({ handleCloseModal, onAddItem, isOpen }) => {
+const EditProfileModal = ({
+  handleCloseModal,
+  onAddItem,
+  isOpen,
+  onCreateModal,
+}) => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
@@ -26,6 +31,7 @@ const EditProfileModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       isOpen={isOpen}
       onSubmit={handleSubmit}
       buttonText="Save Changes"
+      onClick={onCreateModal}
     >
       <label>
         Name *

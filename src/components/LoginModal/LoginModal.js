@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ handleCloseModal, onAddItem, isOpen }) => {
+const LoginModal = ({ handleCloseModal, onAddItem, isOpen, onCreateModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,6 +26,7 @@ const LoginModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       isOpen={isOpen}
       onSubmit={handleSubmit}
       buttonText="Log In or Sign Up"
+      //   onClick={onCreateModal}
     >
       <label>
         Email

@@ -6,6 +6,7 @@ const RegisterModal = ({
   onAddItem,
   isOpen,
   handleRegistration,
+  onCreateModal,
 }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -46,6 +47,7 @@ const RegisterModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       buttonText="Sign Up"
+      //   onClick={onCreateModal}
     >
       <label>
         Email *

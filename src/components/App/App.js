@@ -242,6 +242,7 @@ function App() {
                 clothingItems={clothingItems}
                 onSelectCard={handleSelectedCard}
                 onCreateModal={handleCreateModal}
+                onEditClick={handleEditModal}
               />
             </Route>
           </Switch>
@@ -251,7 +252,7 @@ function App() {
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "create"}
               onAddItem={handleAddItemSubmit}
-              onCreateModal={handleCreateModal}
+              // onCreateModal={handleCreateModal}
             />
           )}
           {activeModal === "preview" && (

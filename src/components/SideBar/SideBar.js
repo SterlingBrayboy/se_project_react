@@ -5,8 +5,26 @@ import "../Profile/Profile.css";
 const SideBar = () => {
   return (
     <div className="profile__info">
-      <img className="profile__pic" src={avatar} alt="avatar" />
-      <p className="profile__name">Terrence Tegegne</p>
+      <div className="profile__user">
+        <img className="profile__pic" src={avatar} alt="avatar" />
+        <p className="profile__name">Terrence Tegegne</p>
+      </div>
+      <div className="profile__user-buttons">
+        <button
+          type="button"
+          className="profile__edit-button"
+          // onClick={onCreateModal}
+        >
+          Change Profile Data
+        </button>
+        <button
+          type="button"
+          className="profile__logout-button"
+          // onClick={onCreateModal}
+        >
+          Log Out
+        </button>
+      </div>
     </div>
   );
 };
