@@ -11,7 +11,7 @@ const Profile = ({
 }) => {
   return (
     <div className="profile">
-      <SideBar onEditClick={handleEditModal} />
+      <SideBar onCreateModal={handleEditModal} />
       <div className="profile__items">
         <p>Your Items</p>
         <button

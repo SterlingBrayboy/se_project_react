@@ -2,7 +2,7 @@ import React from "react";
 import avatar from "../../images/avatar.svg";
 import "../Profile/Profile.css";
 
-const SideBar = () => {
+const SideBar = ({ onCreateModal }) => {
   return (
     <div className="profile__info">
       <div className="profile__user">
@@ -13,7 +13,7 @@ const SideBar = () => {
         <button
           type="button"
           className="profile__edit-button"
-          // onClick={onCreateModal}
+          onClick={onCreateModal}
         >
           Change Profile Data
         </button>
