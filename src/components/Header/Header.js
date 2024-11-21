@@ -3,15 +3,15 @@ import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
-// import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-// const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-const Header = ({ onCreateModal, location }) => {
+const Header = ({ onCreateModal, location, onLoginClick, onSignupClick }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   return (
     <header className="header">
@@ -36,11 +36,23 @@ const Header = ({ onCreateModal, location }) => {
             + Add clothes
           </button>
         </div>
-        <Link className="header__name" to="/profile">
-          Terrence Tegegne
-        </Link>
+        <p className="header__name">Terrence Tegegne</p>
+        {isLoggedIn ? (
+          <Link className="header__avatar-logo" to="/profile">
+            <img src={avatar} alt="avatar" />
+          </Link>
+        ) : (
+          <>
+            <button className="header__login" onClick={onLoginClick}>
+              Login
+            </button>
+            <button className="header__signup" onClick={onSignupClick}>
+              Register
+            </button>
+          </>
+        )}
         <div>
-          <img src={avatar} className="header__avatar-logo" alt="avatar" />
+          {/* <img src={avatar} className="header__avatar-logo" alt="avatar" /> */}
         </div>
       </div>
     </header>

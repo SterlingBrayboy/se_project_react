@@ -39,7 +39,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState([]);
   const [clothingItems, setClothingItems] = useState([]);
-  // const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   // OPEN MODAL
 
@@ -222,7 +222,12 @@ function App() {
         <CurrentTemperatureUnitContext.Provider
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
-          <Header onCreateModal={handleCreateModal} location={temp.location} />
+          <Header
+            onCreateModal={handleCreateModal}
+            onLoginClick={handleLoginModal}
+            onSignupClick={handleRegisterModal}
+            location={temp.location}
+          />
           <Switch>
             <Route exact path="/">
               <Main
@@ -233,11 +238,11 @@ function App() {
               />
             </Route>
             <Route path="/profile">
-              {/* {isLoggedIn ? (
+              {isLoggedIn ? (
                 <Redirect to="/profile" />
               ) : (
                 <Redirect to="/login" />
-              )} */}
+              )}
               <Profile
                 clothingItems={clothingItems}
                 onSelectCard={handleSelectedCard}

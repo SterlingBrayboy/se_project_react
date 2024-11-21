@@ -30,3 +30,11 @@
   background: none;
   cursor: pointer;
 }
+
+.header__login {
+  cursor: pointer;
+}
+
+.header__signup {
+  cursor: pointer;
+}

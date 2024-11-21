@@ -6,6 +6,7 @@ const EditProfileModal = ({
   onAddItem,
   isOpen,
   onCreateModal,
+  HandleEditProfile,
 }) => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -21,7 +22,7 @@ const EditProfileModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, avatar });
+    HandleEditProfile({ name, avatar });
   };
 
   return (

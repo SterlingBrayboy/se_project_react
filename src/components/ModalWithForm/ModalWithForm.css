@@ -79,7 +79,7 @@
 
 .modal__close {
   position: absolute;
-  left: 510px;
+  left: 450px;
   display: flex;
   justify-content: flex-end;
   border: none;
