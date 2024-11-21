@@ -3,6 +3,9 @@ import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+// import React, { useEffect, useState } from "react";
+
+// const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
 const Header = ({ onCreateModal, location }) => {
   const currentDate = new Date().toLocaleString("default", {
@@ -24,9 +27,6 @@ const Header = ({ onCreateModal, location }) => {
       </div>
       <div className="header__avatar-logo">
         <ToggleSwitch />
-        {/* <div>
-          <Checkbox label="My Value" value={checked} onChange={handleChange} />
-        </div> */}
         <div>
           <button
             type="text"
@@ -40,12 +40,7 @@ const Header = ({ onCreateModal, location }) => {
           Terrence Tegegne
         </Link>
         <div>
-          <img
-            src={avatar}
-            className="header__avatar-logo"
-            alt="avatar"
-            onClick={onCreateModal}
-          />
+          <img src={avatar} className="header__avatar-logo" alt="avatar" />
         </div>
       </div>
     </header>

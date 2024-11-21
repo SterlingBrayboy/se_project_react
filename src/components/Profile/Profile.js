@@ -8,10 +8,11 @@ const Profile = ({
   onSelectCard,
   onCreateModal,
   handleEditModal,
+  onEditClick,
 }) => {
   return (
     <div className="profile">
-      <SideBar onCreateModal={handleEditModal} />
+      <SideBar onCreateModal={onEditClick} />
       <div className="profile__items">
         <p>Your Items</p>
         <button
