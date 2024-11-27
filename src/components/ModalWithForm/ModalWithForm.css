@@ -25,7 +25,59 @@
   flex-flow: column wrap;
 }
 
+.modal__button-div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* .modal__button-or {
+  border: none;
+  background: lightgrey;
+  border-radius: 3px;
+  width: 124px;
+  height: 36px;
+  color: white;
+  margin-top: 32px;
+} */
+
+/* .modal__button {
+  border: none;
+  background: lightgrey;
+  border-radius: 3px;
+  width: 124px;
+  height: 36px;
+  color: white;
+  margin-top: 32px;
+} */
+
 .modal__button {
+  border: none;
+  background: lightgrey;
+  border-radius: 3px;
+  width: 73px;
+  height: 36px;
+  color: white;
+  margin-top: 32px;
+}
+
+.modal__button:last-of-type {
+  background: none;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 32px;
+}
+
+.modal__add-garment-button {
+  border: none;
+  background: lightgrey;
+  border-radius: 3px;
+  width: 124px;
+  height: 36px;
+  color: white;
+  margin-top: 32px;
+}
+
+.modal__save-changes-button {
   border: none;
   background: lightgrey;
   border-radius: 3px;
@@ -39,6 +91,22 @@
   background-color: rgba(0, 0, 0, 0.6);
   transition: 0.5s;
   cursor: pointer;
+}
+
+.modal__add-garment-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.modal__save-changes-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.modal__button:hover:last-of-type {
+  background-color: initial;
 }
 
 .modal__title {

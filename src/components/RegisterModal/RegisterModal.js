@@ -5,7 +5,7 @@ const RegisterModal = ({
   handleCloseModal,
   onAddItem,
   isOpen,
-  handleRegistration,
+  HandleRegistration,
   onCreateModal,
 }) => {
   const [name, setName] = useState("");
@@ -37,7 +37,7 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegistration({ name, avatar, email, password });
+    HandleRegistration({ name, avatar, email, password });
   };
 
   return (
@@ -46,8 +46,8 @@ const RegisterModal = ({
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      buttonText="Sign Up"
-      //   onClick={onCreateModal}
+      //   buttonText="Sign Up"
+      //   secondaryButton="or Log In"
     >
       <label>
         Email *
@@ -99,6 +99,15 @@ const RegisterModal = ({
           onChange={handleAvatarChange}
         />
       </label>
+      <div className="modal__button-div">
+        <button type="submit" className="modal__button">
+          Sign Up
+        </button>
+        <button type="submit" className="modal__button">
+          {" "}
+          or Log In
+        </button>
+      </div>
     </ModalWithForm>
   );
 };

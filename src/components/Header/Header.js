@@ -27,33 +27,32 @@ const Header = ({ onCreateModal, location, onLoginClick, onSignupClick }) => {
       </div>
       <div className="header__avatar-logo">
         <ToggleSwitch />
-        <div>
-          <button
-            type="text"
-            className="header__button"
-            onClick={onCreateModal}
-          >
-            + Add clothes
-          </button>
-        </div>
-        <p className="header__name">Terrence Tegegne</p>
         {isLoggedIn ? (
-          <Link className="header__avatar-logo" to="/profile">
-            <img src={avatar} alt="avatar" />
-          </Link>
+          <>
+            <div>
+              <button
+                type="text"
+                className="header__button"
+                onClick={onCreateModal}
+              >
+                + Add clothes
+              </button>
+            </div>
+            <p className="header__name">Terrence Tegegne</p>
+            <Link className="header__avatar-logo" to="/profile">
+              <img src={avatar} alt="avatar" />
+            </Link>
+          </>
         ) : (
           <>
-            <button className="header__login" onClick={onLoginClick}>
-              Login
-            </button>
             <button className="header__signup" onClick={onSignupClick}>
-              Register
+              Sign Up
+            </button>
+            <button className="header__login" onClick={onLoginClick}>
+              Log In
             </button>
           </>
         )}
-        <div>
-          {/* <img src={avatar} className="header__avatar-logo" alt="avatar" /> */}
-        </div>
       </div>
     </header>
   );
