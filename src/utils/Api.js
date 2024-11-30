@@ -55,8 +55,8 @@ class Api {
   }
 
   editUser(name, avatar) {
-    return fetch(this.baseUrl, {
-      method: "POST",
+    return fetch(this.baseUrl + "/users/me", {
+      method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name,
