@@ -11,7 +11,7 @@ const Header = ({ onCreateModal, location, onLoginClick, onSignupClick }) => {
     day: "numeric",
   });
 
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   return (
     <header className="header">
