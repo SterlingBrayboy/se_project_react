@@ -80,12 +80,12 @@ function App() {
 
   // ADD ITEM FORM SUBMIT
 
-  const handleAddItemSubmit = (item) => {
+  const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
     api
-      .addItem(item)
+      .addItem(name, imageUrl, weather)
       .then((res) => {
         setClothingItems([res, ...clothingItems]);
-        console.log(item);
+        console.log(res);
         handleCloseModal();
       })
       .catch(console.error);

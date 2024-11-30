@@ -18,7 +18,7 @@ class Auth {
   }
 
   registerUser({ name, avatar, email, password }) {
-    return fetch(this.baseUrl + "/users/me", {
+    return fetch(this.baseUrl + "/signup/", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
@@ -31,7 +31,7 @@ class Auth {
   }
 
   loginUser({ email, password }) {
-    return fetch(this.baseUrl + "/users/me", {
+    return fetch(this.baseUrl + "/signin/", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({

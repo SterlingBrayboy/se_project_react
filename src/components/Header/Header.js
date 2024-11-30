@@ -1,11 +1,18 @@
 import "./Header.css";
 import logo from "../../images/logo.svg";
-import avatar from "../../images/avatar.svg";
+// import avatar from "../../images/avatar.svg";
+import Avatar from "../Avatar/Avatar";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
-const Header = ({ onCreateModal, location, onLoginClick, onSignupClick }) => {
+const Header = ({
+  onCreateModal,
+  location,
+  onLoginClick,
+  onSignupClick,
+  name,
+}) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -38,9 +45,9 @@ const Header = ({ onCreateModal, location, onLoginClick, onSignupClick }) => {
                 + Add clothes
               </button>
             </div>
-            <p className="header__name">Terrence Tegegne</p>
+            <p className="header__name">{name}</p>
             <Link className="header__avatar-logo" to="/profile">
-              <img src={avatar} alt="avatar" />
+              <img src={Avatar} alt="avatar" />
             </Link>
           </>
         ) : (
