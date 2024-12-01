@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
@@ -10,6 +10,8 @@ const Profile = ({
   handleEditModal,
   onEditClick,
 }) => {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+
   return (
     <div className="profile">
       <SideBar onCreateModal={onEditClick} />

@@ -145,6 +145,15 @@ function App() {
     }
   };
 
+  // LOGOUT HANDLER
+
+  const handleLogout = ({ currentUser, setIsLoggedIn }) => {
+    if (isLoggedIn === true) {
+      return setIsLoggedIn === false;
+    }
+    CurrentUserContext.remove(currentUser);
+  };
+
   // EDIT PROFILE HANDLER
 
   const HandleEditProfile = ({ name, avatar }) => {
