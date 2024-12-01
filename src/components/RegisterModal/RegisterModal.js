@@ -5,7 +5,7 @@ const RegisterModal = ({
   handleCloseModal,
   onAddItem,
   isOpen,
-  HandleRegistration,
+  handleRegistration,
   onCreateModal,
 }) => {
   const [name, setName] = useState("");
@@ -37,7 +37,7 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    HandleRegistration({ name, avatar, email, password });
+    handleRegistration({ name, avatar, email, password });
   };
 
   return (

@@ -39,7 +39,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState([]);
   const [clothingItems, setClothingItems] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   // OPEN MODAL
 
@@ -121,11 +121,11 @@ function App() {
 
   // REGISTRATION HANDLER
 
-  const HandleRegistration = ({ name, avatar, email, password }) => {
+  const handleRegistration = ({ name, avatar, email, password }) => {
     if (name && avatar && email && password) {
       auth
         .registerUser({ name, avatar, email, password })
-        .then(() => {
+        .then((res) => {
           handleCloseModal();
         })
         .catch((err) => console.error(err));
@@ -134,7 +134,7 @@ function App() {
 
   // LOGIN HANDLER
 
-  const HandleLogin = ({ email, password }) => {
+  const handleLogin = ({ email, password }) => {
     if (email && password) {
       auth
         .loginUser({ email, password })
@@ -154,7 +154,7 @@ function App() {
 
   // EDIT PROFILE HANDLER
 
-  const HandleEditProfile = ({ name, avatar }) => {
+  const handleEditProfile = ({ name, avatar }) => {
     if (name && avatar) {
       api
         .editUser({ name, avatar })
@@ -279,7 +279,7 @@ function App() {
             <RegisterModal
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "register"}
-              HandleRegistration={HandleRegistration}
+              handleRegistration={handleRegistration}
               onCreateModal={handleRegisterModal}
             />
           )}
@@ -287,7 +287,7 @@ function App() {
             <LoginModal
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "login"}
-              HandleLogin={HandleLogin}
+              handleLogin={handleLogin}
               onCreateModal={handleLoginModal}
             />
           )}
@@ -295,7 +295,7 @@ function App() {
             <EditProfileModal
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "edit"}
-              HandleEditProfile={HandleEditProfile}
+              handleEditProfile={handleEditProfile}
               onCreateModal={handleEditModal}
             />
           )}

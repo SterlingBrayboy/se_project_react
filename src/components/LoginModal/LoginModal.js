@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const LoginModal = ({
   handleCloseModal,
-  HandleLogin,
+  handleLogin,
   isOpen,
   onCreateModal,
 }) => {
@@ -21,7 +21,7 @@ const LoginModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    HandleLogin({ email, password });
+    handleLogin({ email, password });
   };
 
   return (

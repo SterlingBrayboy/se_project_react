@@ -3,7 +3,7 @@ import React from "react";
 import Avatar from "../Avatar/Avatar";
 import "../Profile/Profile.css";
 
-const SideBar = ({ onCreateModal, handleLogout }) => {
+const SideBar = ({ onCreateModal, onLogoutClick }) => {
   return (
     <div className="profile__info">
       <div className="profile__user">
@@ -21,7 +21,7 @@ const SideBar = ({ onCreateModal, handleLogout }) => {
         <button
           type="button"
           className="profile__logout-button"
-          onLogoutClick={handleLogout}
+          onClick={onLogoutClick}
         >
           Log Out
         </button>
