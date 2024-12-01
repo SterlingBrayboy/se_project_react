@@ -18,7 +18,7 @@ const Header = ({
     day: "numeric",
   });
 
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   return (
     <header className="header">

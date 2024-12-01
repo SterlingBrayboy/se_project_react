@@ -21,7 +21,7 @@ const SideBar = ({ onCreateModal, handleLogout }) => {
         <button
           type="button"
           className="profile__logout-button"
-          onClick={handleLogout}
+          onLogoutClick={handleLogout}
         >
           Log Out
         </button>

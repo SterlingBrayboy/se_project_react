@@ -39,7 +39,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState([]);
   const [clothingItems, setClothingItems] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   // OPEN MODAL
 
@@ -147,11 +147,9 @@ function App() {
 
   // LOGOUT HANDLER
 
-  const handleLogout = ({ currentUser, setIsLoggedIn }) => {
-    if (isLoggedIn === true) {
-      return setIsLoggedIn === false;
-    }
-    CurrentUserContext.remove(currentUser);
+  const handleLogout = ({ setIsLoggedIn, setCurrentUser }) => {
+    setIsLoggedIn(false);
+    setCurrentUser(null);
   };
 
   // EDIT PROFILE HANDLER
@@ -257,6 +255,7 @@ function App() {
                 onSelectCard={handleSelectedCard}
                 onCreateModal={handleCreateModal}
                 onEditClick={handleEditModal}
+                onLogoutClick={handleLogout}
               />
             </Route>
           </Switch>

@@ -8,13 +8,14 @@ const Profile = ({
   onSelectCard,
   onCreateModal,
   handleEditModal,
+  onLogoutClick,
   onEditClick,
 }) => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+  // const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   return (
     <div className="profile">
-      <SideBar onCreateModal={onEditClick} />
+      <SideBar onCreateModal={onEditClick} onClick={onLogoutClick} />
       <div className="profile__items">
         <p>Your Items</p>
         <button
