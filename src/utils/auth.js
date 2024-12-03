@@ -39,8 +39,8 @@ class Auth {
         password,
       }),
     })
-      .then(this._addToStorage)
-      .then(this._checkResponse);
+      .then(this._checkResponse)
+      .then(this._addToStorage);
   }
 
   verifyToken(token) {
