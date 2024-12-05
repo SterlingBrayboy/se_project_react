@@ -6,6 +6,7 @@ const LoginModal = ({
   handleLogin,
   isOpen,
   onCreateModal,
+  onSignUpClick,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,7 +63,7 @@ const LoginModal = ({
         <button type="submit" className="modal__button">
           Log In
         </button>
-        <button type="submit" className="modal__button">
+        <button type="submit" className="modal__button" onClick={onSignUpClick}>
           or Sign Up
         </button>
       </div>

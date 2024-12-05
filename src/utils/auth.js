@@ -46,8 +46,10 @@ class Auth {
   verifyToken(token) {
     return fetch(this.baseUrl + "/users/me", {
       method: "GET",
-      headers: this._headers,
-      authorization: `Bearer ${token}`,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${token}`,
+      },
     }).then(this._checkResponse);
   }
 }

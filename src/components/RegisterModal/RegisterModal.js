@@ -7,6 +7,7 @@ const RegisterModal = ({
   isOpen,
   handleRegistration,
   onCreateModal,
+  onLoginClick,
 }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -103,7 +104,7 @@ const RegisterModal = ({
         <button type="submit" className="modal__button">
           Sign Up
         </button>
-        <button type="submit" className="modal__button">
+        <button type="submit" className="modal__button" onClick={onLoginClick}>
           {" "}
           or Log In
         </button>

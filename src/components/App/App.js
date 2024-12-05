@@ -33,7 +33,7 @@ const auth = new Auth({
 });
 
 function App() {
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState(null);
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -69,6 +69,14 @@ function App() {
 
   const handleEditModal = () => {
     setActiveModal("edit");
+  };
+
+  // TOGGLE BETWEEN THE MODALS
+
+  const toggleModal = () => {
+    setActiveModal((prevModal) =>
+      prevModal === "register" ? "login" : "register"
+    );
   };
 
   // PREVIEW CARD
@@ -207,7 +215,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const token = auth._addToStorage;
+    const token = localStorage.getItem("jwt");
 
     if (token) {
       // Call a function to verify the token
@@ -281,6 +289,7 @@ function App() {
               isOpen={activeModal === "register"}
               handleRegistration={handleRegistration}
               onCreateModal={handleRegisterModal}
+              onLoginClick={toggleModal}
             />
           )}
           {activeModal === "login" && (
@@ -289,6 +298,7 @@ function App() {
               isOpen={activeModal === "login"}
               handleLogin={handleLogin}
               onCreateModal={handleLoginModal}
+              onSignUpClick={toggleModal}
             />
           )}
           {activeModal === "edit" && (
