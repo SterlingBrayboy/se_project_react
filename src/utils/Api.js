@@ -32,25 +32,29 @@ class Api {
   }
 
   deleteItem(id) {
-    return fetch(this.baseUrl + "/items/" + id, {
+    return fetch(`${this.baseUrl}/items/${id}`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
   addCardLike(id, token) {
-    return fetch(this.baseUrl, +"/items/" + id, {
+    return fetch(`${this.baseUrl}/items/${id}`, {
       method: "POST",
-      headers: this._headers,
-      authorization: `Bearer ${token}`,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${token}`,
+      },
     }).then(this._checkResponse);
   }
 
   removeCardLike(id, token) {
     return fetch(this.baseUrl, +"/items/" + id, {
       method: "DELETE",
-      headers: this._headers,
-      authorization: `Bearer ${token}`,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${token}`,
+      },
     }).then(this._checkResponse);
   }
 
