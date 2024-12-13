@@ -104,7 +104,7 @@ const RegisterModal = ({
         <button type="submit" className="modal__button">
           Sign Up
         </button>
-        <button type="submit" className="modal__button" onClick={onLoginClick}>
+        <button type="button" className="modal__button" onClick={onLoginClick}>
           {" "}
           or Log In
         </button>

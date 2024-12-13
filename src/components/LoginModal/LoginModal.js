@@ -63,7 +63,7 @@ const LoginModal = ({
         <button type="submit" className="modal__button">
           Log In
         </button>
-        <button type="submit" className="modal__button" onClick={onSignUpClick}>
+        <button type="button" className="modal__button" onClick={onSignUpClick}>
           or Sign Up
         </button>
       </div>
