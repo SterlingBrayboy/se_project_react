@@ -147,11 +147,10 @@ function App() {
       auth
         .loginUser({ email, password })
         .then((token) => {
-          localStorage.setItem(token);
           return auth.verifyToken(token);
         })
-        .then((userData) => {
-          setCurrentUser(userData);
+        .then((currentUser) => {
+          setCurrentUser(currentUser);
           handleCloseModal();
           setIsLoggedIn(true);
         })
