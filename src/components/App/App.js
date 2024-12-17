@@ -146,8 +146,14 @@ function App() {
     if (email && password) {
       auth
         .loginUser({ email, password })
-        .then(() => {
+        .then((token) => {
+          localStorage.setItem(token);
+          return auth.verifyToken(token);
+        })
+        .then((userData) => {
+          setCurrentUser(userData);
           handleCloseModal();
+          setIsLoggedIn(true);
         })
         .catch((err) => console.error(err));
     }
