@@ -15,6 +15,7 @@ class Auth {
 
   _addToStorage(res) {
     localStorage.setItem("jwt", res.token);
+    return res.token;
   }
 
   registerUser({ name, avatar, email, password }) {
