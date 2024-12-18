@@ -4,6 +4,7 @@ import logo from "../../images/logo.svg";
 import Avatar from "../Avatar/Avatar";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React, { useState } from "react";
 
 const Header = ({
@@ -19,6 +20,16 @@ const Header = ({
   });
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+  const { currentUser } = React.useContext(CurrentUserContext);
+
+  React.useEffect(() => {
+    if (currentUser) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [currentUser]);
 
   return (
     <header className="header">
