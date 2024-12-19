@@ -24,7 +24,7 @@ const Header = ({
   const { currentUser } = React.useContext(CurrentUserContext);
 
   React.useEffect(() => {
-    if (currentUser) {
+    if (currentUser.name) {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
