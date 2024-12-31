@@ -90,7 +90,7 @@ function App() {
 
   const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
     api
-      .addItem(name, imageUrl, weather)
+      .addItem({ name, imageUrl, weather })
       .then((res) => {
         setClothingItems([res, ...clothingItems]);
         console.log(res);
