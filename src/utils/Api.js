@@ -20,9 +20,13 @@ class Api {
   }
 
   addItem({ name, imageUrl, weather }) {
+    const token = localStorage.getItem("jwt");
     return fetch(this.baseUrl + "/items", {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         name,
         imageUrl,
@@ -32,9 +36,13 @@ class Api {
   }
 
   deleteItem(id) {
+    const token = localStorage.getItem("jwt");
     return fetch(`${this.baseUrl}/items/${id}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${token}`,
+      },
     }).then(this._checkResponse);
   }
 
