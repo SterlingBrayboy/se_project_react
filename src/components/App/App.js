@@ -229,6 +229,7 @@ function App() {
         .then((user) => {
           // Handle successful verification
           setCurrentUser(user);
+          setIsLoggedIn(true);
         })
         .catch((err) => {
           console.error(err);

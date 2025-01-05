@@ -1,14 +1,17 @@
-import React from "react";
-// import avatar from "../../images/avatar.svg";
+import React, { useContext } from "react";
 import Avatar from "../Avatar/Avatar";
 import "../Profile/Profile.css";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const SideBar = ({ onCreateModal, onLogoutClick }) => {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <div className="profile__info">
       <div className="profile__user">
-        <img className="profile__pic" src={Avatar} alt="avatar" />
-        <p className="profile__name">Terrence Tegegne</p>
+        {/* <img className="profile__pic" /> */}
+        <Avatar imageUrl={currentUser.avatar} name={currentUser.name} />
+        <p className="profile__name">{currentUser.name}</p>
       </div>
       <div className="profile__user-buttons">
         <button

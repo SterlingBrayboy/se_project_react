@@ -1,6 +1,5 @@
 import "./Header.css";
 import logo from "../../images/logo.svg";
-// import avatar from "../../images/avatar.svg";
 import Avatar from "../Avatar/Avatar";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
@@ -19,7 +18,7 @@ const Header = ({
     day: "numeric",
   });
 
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const { currentUser } = React.useContext(CurrentUserContext);
 
@@ -56,9 +55,10 @@ const Header = ({
                 + Add clothes
               </button>
             </div>
-            <p className="header__name">{name}</p>
+            <p className="header__name">{currentUser.name}</p>
             <Link className="header__avatar-logo" to="/profile">
-              <img src={Avatar} alt="avatar" />
+              {/* <img src={Avatar} alt="avatar" /> */}
+              <Avatar imageUrl={currentUser.avatar} name={name} />
             </Link>
           </>
         ) : (

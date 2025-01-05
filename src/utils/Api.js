@@ -66,10 +66,13 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  editUser(name, avatar) {
+  editUser(token, name, avatar) {
     return fetch(this.baseUrl + "/users/me", {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         name,
         avatar,
