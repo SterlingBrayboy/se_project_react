@@ -9,8 +9,11 @@ const SideBar = ({ onCreateModal, onLogoutClick }) => {
   return (
     <div className="profile__info">
       <div className="profile__user">
-        {/* <img className="profile__pic" /> */}
-        <Avatar imageUrl={currentUser.avatar} name={currentUser.name} />
+        <Avatar
+          className="profile__pic"
+          imageUrl={currentUser.avatar}
+          name={currentUser.name}
+        />
         <p className="profile__name">{currentUser.name}</p>
       </div>
       <div className="profile__user-buttons">

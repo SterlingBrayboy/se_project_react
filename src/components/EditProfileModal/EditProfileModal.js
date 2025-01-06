@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const EditProfileModal = ({
   handleCloseModal,
@@ -10,6 +11,8 @@ const EditProfileModal = ({
 }) => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
+
+  const { currentUser } = useContext(CurrentUserContext);
 
   const handleNameChange = (e) => {
     console.log(e.target.value);

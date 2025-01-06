@@ -1,3 +1,5 @@
+import "./ItemCard.css";
+
 const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   // const handleLike = () => {
 

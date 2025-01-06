@@ -48,7 +48,7 @@ class Api {
 
   addCardLike(id, token) {
     return fetch(`${this.baseUrl}/items/${id}`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         ...this._headers,
         Authorization: `Bearer ${token}`,
@@ -57,7 +57,7 @@ class Api {
   }
 
   removeCardLike(id, token) {
-    return fetch(this.baseUrl, +"/items/" + id, {
+    return fetch(`${this.baseUrl}/items/${id}`, {
       method: "DELETE",
       headers: {
         ...this._headers,
