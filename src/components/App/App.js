@@ -101,8 +101,9 @@ function App() {
 
   // LIKE HANDLER
 
-  const handleCardLike = ({ id, isLiked }) => {
+  const handleCardLike = ({ _id: id, likes }) => {
     const token = localStorage.getItem("jwt");
+    const isLiked = likes.some((like) => like === currentUser._id);
     // Check if this card is now liked
     isLiked
       ? // if so, send a request to add the user's id to the card's likes array
