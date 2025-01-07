@@ -10,6 +10,7 @@ const Profile = ({
   handleEditModal,
   onLogoutClick,
   onEditClick,
+  handleCardLike,
 }) => {
   // const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
@@ -30,6 +31,7 @@ const Profile = ({
         <ClothesSection
           clothingItems={clothingItems}
           onSelectCard={onSelectCard}
+          onCardLike={handleCardLike}
         />
       </div>
     </div>

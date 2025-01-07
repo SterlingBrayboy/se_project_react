@@ -164,6 +164,7 @@ function App() {
   const handleLogout = ({ setIsLoggedIn, setCurrentUser }) => {
     setIsLoggedIn(false);
     setCurrentUser(null);
+    localStorage.removeItem("jwt");
   };
 
   // EDIT PROFILE HANDLER
@@ -271,6 +272,7 @@ function App() {
                 onCreateModal={handleCreateModal}
                 onEditClick={handleEditModal}
                 onLogoutClick={handleLogout}
+                handleCardLike={handleCardLike}
               />
             </Route>
           </Switch>

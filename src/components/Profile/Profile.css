@@ -22,7 +22,6 @@
 }
 
 .profile__pic {
-  margin-left: 20px;
   height: 56px;
   width: 56px;
 }
@@ -44,6 +43,7 @@
 }
 
 .profile__user {
+  margin-left: 20px;
   display: flex;
   flex-direction: row;
 }
@@ -93,6 +93,6 @@
 }
 
 .profile__cards {
-  width: 1300px;
-  margin-left: 170px;
+  max-width: 950px;
+  margin-left: 400px;
 }

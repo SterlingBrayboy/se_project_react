@@ -12,7 +12,7 @@ const ClothesSection = ({ clothingItems, onSelectCard, onCardLike }) => {
         <ItemCard
           item={item}
           onSelectCard={onSelectCard}
-          onClick={onCardLike}
+          onCardLike={onCardLike}
           key={item._id}
         />
       ))}
