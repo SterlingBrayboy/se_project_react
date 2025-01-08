@@ -1,13 +1,17 @@
 import "./ItemCard.css";
+import React, { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const ItemCard = ({ item, onSelectCard, onCardLike }) => {
-  // const handleLike = () => {
-
-  // };
+  const { currentUser } = useContext(CurrentUserContext);
+  const isLiked = item.liked.some((like) => like === currentUser?._id);
 
   return (
     <div className="card__area">
-      <button className="card__like" onClick={() => onCardLike(item)}></button>
+      <button
+        className="card__like"
+        onClick={() => onCardLike(item, isLiked)}
+      ></button>
       <img
         className="card__image"
         src={item.imageUrl}
