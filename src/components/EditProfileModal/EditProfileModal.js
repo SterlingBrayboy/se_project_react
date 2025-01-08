@@ -1,32 +1,46 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const EditProfileModal = ({
   handleCloseModal,
-  onAddItem,
+  onClose,
+  onSubmit,
   isOpen,
   onCreateModal,
   handleEditProfile,
 }) => {
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
-
   const { currentUser } = useContext(CurrentUserContext);
+  const [name, setName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
-  const handleNameChange = (e) => {
-    console.log(e.target.value);
-    setName(e.target.value);
-  };
-  const handleAvatarChange = (e) => {
-    console.log(e.target.value);
-    setAvatar(e.target.value);
-  };
+  useEffect(() => {
+    if (currentUser) {
+      setName(currentUser.name);
+      setImageUrl(currentUser.avatar);
+    }
+  }, [currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleEditProfile({ name, avatar });
+    // onSubmit({ name, imageUrl });
+    setName(name.textContent === currentUser.name);
+    setImageUrl(imageUrl.textContent === currentUser.avatar);
   };
+
+  // const handleNameChange = (e) => {
+  //   console.log(e.target.value);
+  //   setName(e.target.value);
+  // };
+  // const handleAvatarChange = (e) => {
+  //   console.log(e.target.value);
+  //   setAvatar(e.target.value);
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   handleEditProfile({ name, avatar });
+  // };
 
   return (
     <ModalWithForm
@@ -47,7 +61,8 @@ const EditProfileModal = ({
           maxLength="30"
           placeholder="Name"
           value={name}
-          onChange={handleNameChange}
+          // onChange={handleNameChange}
+          onChange={(e) => setName(e.target.value)}
         />
       </label>
       <label>
@@ -58,8 +73,9 @@ const EditProfileModal = ({
           name="link"
           minLength="1"
           placeholder="Avatar URL"
-          value={avatar}
-          onChange={handleAvatarChange}
+          value={imageUrl}
+          // onChange={handleAvatarChange}
+          onChange={(e) => setImageUrl(e.target.value)}
         />
       </label>
       <button type="submit" className="modal__save-changes-button">

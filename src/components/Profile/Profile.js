@@ -16,7 +16,7 @@ const Profile = ({
 
   return (
     <div className="profile">
-      <SideBar onCreateModal={onEditClick} onClick={onLogoutClick} />
+      <SideBar onCreateModal={onEditClick} onLogoutClick={onLogoutClick} />
       <div className="profile__items">
         <p>Your Items</p>
         <button

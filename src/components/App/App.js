@@ -161,9 +161,9 @@ function App() {
 
   // LOGOUT HANDLER
 
-  const handleLogout = ({ setIsLoggedIn, setCurrentUser }) => {
+  const handleLogout = () => {
     setIsLoggedIn(false);
-    setCurrentUser(null);
+    setCurrentUser(currentUser === null);
     localStorage.removeItem("jwt");
   };
 
