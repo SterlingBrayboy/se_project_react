@@ -174,6 +174,8 @@ function App() {
       api
         .editUser({ name, avatar })
         .then(() => {
+          // setName((name.textContent = currentUser.name));
+          // setImageUrl((avatar.textConent = currentUser.avatar));
           handleCloseModal();
         })
         .catch((err) => console.error(err));
@@ -315,6 +317,7 @@ function App() {
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "edit"}
               handleEditProfile={handleEditProfile}
+              onSubmit={handleEditProfile}
               onCreateModal={handleEditModal}
             />
           )}

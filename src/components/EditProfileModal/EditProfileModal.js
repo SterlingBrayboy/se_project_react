@@ -21,12 +21,11 @@ const EditProfileModal = ({
     }
   }, [currentUser]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // onSubmit({ name, imageUrl });
-    setName(name.textContent === currentUser.name);
-    setImageUrl(imageUrl.textContent === currentUser.avatar);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // onSubmit({ name, imageUrl });
+  //   onSubmit({ name, avatar: imageUrl });
+  // };
 
   // const handleNameChange = (e) => {
   //   console.log(e.target.value);
@@ -47,7 +46,7 @@ const EditProfileModal = ({
       title="Change Profile Data"
       onClose={handleCloseModal}
       isOpen={isOpen}
-      onSubmit={handleSubmit}
+      onSubmit={handleEditProfile}
       buttonText="Save Changes"
       onClick={onCreateModal}
     >
