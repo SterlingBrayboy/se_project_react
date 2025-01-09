@@ -174,8 +174,9 @@ function App() {
     if (name && avatar) {
       api
         .editUser(token, name, avatar)
-        .then(() => {
+        .then((res) => {
           handleCloseModal();
+          setCurrentUser({ name, avatar });
         })
         .catch((err) => console.error(err));
     }
