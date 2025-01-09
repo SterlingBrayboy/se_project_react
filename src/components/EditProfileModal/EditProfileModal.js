@@ -21,11 +21,20 @@ const EditProfileModal = ({
     }
   }, [currentUser]);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // onSubmit({ name, imageUrl });
-  //   onSubmit({ name, avatar: imageUrl });
-  // };
+  // inside your EditProfileModal
+  useEffect(() => {
+    if (isOpen) {
+      // only run this on open
+      setName(currentUser?.name);
+      setImageUrl(currentUser?.avatar);
+    }
+  }, [isOpen]); // this will run this code every time the isOpen value changes
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // onSubmit({ name, imageUrl });
+    onSubmit({ name, avatar: imageUrl });
+  };
 
   // const handleNameChange = (e) => {
   //   console.log(e.target.value);
@@ -46,7 +55,7 @@ const EditProfileModal = ({
       title="Change Profile Data"
       onClose={handleCloseModal}
       isOpen={isOpen}
-      onSubmit={handleEditProfile}
+      onSubmit={handleSubmit}
       buttonText="Save Changes"
       onClick={onCreateModal}
     >
