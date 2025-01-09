@@ -170,9 +170,10 @@ function App() {
   // EDIT PROFILE HANDLER
 
   const handleEditProfile = ({ name, avatar }) => {
+    const token = localStorage.getItem("jwt");
     if (name && avatar) {
       api
-        .editUser({ name, avatar })
+        .editUser(token, name, avatar)
         .then(() => {
           handleCloseModal();
         })

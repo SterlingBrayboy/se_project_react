@@ -32,7 +32,6 @@ const EditProfileModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // onSubmit({ name, imageUrl });
     onSubmit({ name, avatar: imageUrl });
   };
 
