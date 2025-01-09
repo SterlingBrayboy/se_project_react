@@ -92,7 +92,7 @@ function App() {
     api
       .addItem({ name, imageUrl, weather })
       .then((res) => {
-        setClothingItems([res, ...clothingItems]);
+        setClothingItems([res.item, ...clothingItems]);
         console.log(res);
         handleCloseModal();
       })
@@ -112,7 +112,7 @@ function App() {
           .addCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((c) => (c._id === id ? updatedCard : c))
+              cards.map((c) => (c._id === id ? updatedCard.data : c))
             );
           })
           .catch((err) => console.log(err))
@@ -122,7 +122,7 @@ function App() {
           .removeCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((c) => (c._id === id ? updatedCard : c))
+              cards.map((c) => (c._id === id ? updatedCard.data : c))
             );
           })
           .catch((err) => console.log(err));

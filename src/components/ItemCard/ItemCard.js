@@ -4,7 +4,8 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   const { currentUser } = useContext(CurrentUserContext);
-  const isLiked = item.liked.some((like) => like === currentUser?._id);
+  console.log(item);
+  const isLiked = item.likes.some((like) => like === currentUser?._id);
 
   return (
     <div className="card__area">

@@ -47,7 +47,7 @@ class Api {
   }
 
   addCardLike(id, token) {
-    return fetch(`${this.baseUrl}/items/${id}`, {
+    return fetch(`${this.baseUrl}/items/${id}/likes`, {
       method: "PUT",
       headers: {
         ...this._headers,
@@ -57,7 +57,7 @@ class Api {
   }
 
   removeCardLike(id, token) {
-    return fetch(`${this.baseUrl}/items/${id}`, {
+    return fetch(`${this.baseUrl}/items/${id}/likes`, {
       method: "DELETE",
       headers: {
         ...this._headers,
