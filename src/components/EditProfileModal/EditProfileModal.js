@@ -4,6 +4,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const EditProfileModal = ({
   handleCloseModal,
+  isLoading,
   onClose,
   onSubmit,
   isOpen,

@@ -36,6 +36,7 @@ function App() {
   const [activeModal, setActiveModal] = useState(null);
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
+  // const [isLoading, setIsLoading] = React.useState(false);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState([]);
   const [clothingItems, setClothingItems] = useState([]);
@@ -52,6 +53,24 @@ function App() {
   const handleCloseModal = () => {
     setActiveModal(null);
   };
+
+  // CLOSE MODAL WITH ESC METHOD
+
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   // OPEN REGISTER MODAL
 
@@ -103,7 +122,6 @@ function App() {
 
   const handleCardLike = ({ _id: id }, isLiked) => {
     const token = localStorage.getItem("jwt");
-    // const isLiked = likes.some((like) => like === currentUser._id);
     // Check if this card is now liked
     !isLiked
       ? api
@@ -311,6 +329,7 @@ function App() {
               isOpen={activeModal === "edit"}
               handleEditProfile={handleEditProfile}
               onSubmit={handleEditProfile}
+              // buttonText={isLoading ? "Saving..." : "Save"}
               onCreateModal={handleEditModal}
             />
           )}

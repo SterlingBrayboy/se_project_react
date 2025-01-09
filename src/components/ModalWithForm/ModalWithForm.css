@@ -31,26 +31,6 @@
   gap: 10px;
 }
 
-/* .modal__button-or {
-  border: none;
-  background: lightgrey;
-  border-radius: 3px;
-  width: 124px;
-  height: 36px;
-  color: white;
-  margin-top: 32px;
-} */
-
-/* .modal__button {
-  border: none;
-  background: lightgrey;
-  border-radius: 3px;
-  width: 124px;
-  height: 36px;
-  color: white;
-  margin-top: 32px;
-} */
-
 .modal__button {
   border: none;
   background: black;
