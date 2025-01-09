@@ -315,6 +315,7 @@ function App() {
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "edit"}
               handleEditProfile={handleEditProfile}
+              onSubmit={handleEditProfile}
               onCreateModal={handleEditModal}
             />
           )}
