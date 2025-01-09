@@ -7,10 +7,12 @@ const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   console.log(item);
   const isLiked = item.likes.some((like) => like === currentUser?._id);
 
+  const cardLiked = `card__like ${isLiked ? "card__like" : "card__unlike"}`;
+
   return (
     <div className="card__area">
       <button
-        className="card__like"
+        className={cardLiked}
         onClick={() => onCardLike(item, isLiked)}
       ></button>
       <img

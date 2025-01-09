@@ -101,11 +101,11 @@ function App() {
 
   // LIKE HANDLER
 
-  const handleCardLike = ({ _id: id, likes }) => {
+  const handleCardLike = ({ _id: id }, isLiked) => {
     const token = localStorage.getItem("jwt");
-    const isLiked = likes.some((like) => like === currentUser._id);
+    // const isLiked = likes.some((like) => like === currentUser._id);
     // Check if this card is now liked
-    isLiked
+    !isLiked
       ? api
           .addCardLike(id, token)
           .then((updatedCard) => {
