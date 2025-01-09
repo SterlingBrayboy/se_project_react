@@ -5,7 +5,12 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   const { currentUser } = useContext(CurrentUserContext);
   console.log(item);
+  // const isOwn = selectedCard.owner === currentUser._id;
   const isLiked = item.likes.some((like) => like === currentUser?._id);
+
+  // const cardLikeVisible = `card__like ${
+  //   isOwn ? "card__like_visible" : "card__like_hidden"
+  // }`;
 
   const cardLiked = `card__like ${isLiked ? "card__like" : "card__unlike"}`;
 

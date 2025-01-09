@@ -50,7 +50,7 @@ function App() {
   // CLOSE MODAL
 
   const handleCloseModal = () => {
-    setActiveModal("");
+    setActiveModal(null);
   };
 
   // OPEN REGISTER MODAL
@@ -260,11 +260,7 @@ function App() {
               />
             </Route>
             <Route path="/profile">
-              {isLoggedIn ? (
-                <Redirect to="/profile" />
-              ) : (
-                <Redirect to="/login" />
-              )}
+              {isLoggedIn ? <Redirect to="/profile" /> : <Redirect to="/" />}
               <Profile
                 clothingItems={clothingItems}
                 onSelectCard={handleSelectedCard}

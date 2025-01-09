@@ -14,13 +14,6 @@ const EditProfileModal = ({
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  useEffect(() => {
-    if (currentUser) {
-      setName(currentUser.name);
-      setImageUrl(currentUser.avatar);
-    }
-  }, [currentUser]);
-
   // inside your EditProfileModal
   useEffect(() => {
     if (isOpen) {

@@ -52,11 +52,9 @@
 .card__items {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  max-width: 670px;
-  /* margin-top: 34px; */
-  /* margin-bottom: 171px; */
+  gap: 10px;
+  justify-content: flex-start;
+  max-width: 1000px;
 }
 
 .card__area {
