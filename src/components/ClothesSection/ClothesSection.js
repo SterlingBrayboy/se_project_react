@@ -1,7 +1,5 @@
 import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
-// import { useMemo, useContext } from "react";
-// import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 const ClothesSection = ({ clothingItems, onSelectCard, onCardLike }) => {
   const profileCards = clothingItems;

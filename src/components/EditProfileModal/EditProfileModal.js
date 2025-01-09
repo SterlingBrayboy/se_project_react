@@ -35,20 +35,6 @@ const EditProfileModal = ({
     onSubmit({ name, avatar: imageUrl });
   };
 
-  // const handleNameChange = (e) => {
-  //   console.log(e.target.value);
-  //   setName(e.target.value);
-  // };
-  // const handleAvatarChange = (e) => {
-  //   console.log(e.target.value);
-  //   setAvatar(e.target.value);
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   handleEditProfile({ name, avatar });
-  // };
-
   return (
     <ModalWithForm
       title="Change Profile Data"
@@ -68,7 +54,6 @@ const EditProfileModal = ({
           maxLength="30"
           placeholder="Name"
           value={name}
-          // onChange={handleNameChange}
           onChange={(e) => setName(e.target.value)}
         />
       </label>
@@ -81,7 +66,6 @@ const EditProfileModal = ({
           minLength="1"
           placeholder="Avatar URL"
           value={imageUrl}
-          // onChange={handleAvatarChange}
           onChange={(e) => setImageUrl(e.target.value)}
         />
       </label>

@@ -9,7 +9,6 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
   const modalContentDelete = `modal__content-delete ${
     isOwn ? "modal__content-delete_visible" : "modal__content-delete_hidden"
   }`;
-  // console.log("ItemModal");
 
   return (
     <div className={`modal`}>
