@@ -62,7 +62,7 @@
 
 .modal__close-item {
   position: absolute;
-  left: 390px;
+  left: calc(100% - 45px);
   top: 25px;
   border: none;
   background: none;
