@@ -12,7 +12,7 @@ const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   const cardLikeVisible = isOwn ? "card__like_visible" : "card__like_hidden";
 
   // Determine the style of the like button based on whether it's liked
-  const cardLiked = isLiked ? "card__like" : "card__unlike";
+  const cardLiked = !isLiked ? "card__like" : "card__unlike";
 
   return (
     <div className="card__area">
