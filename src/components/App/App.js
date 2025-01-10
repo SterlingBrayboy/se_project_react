@@ -193,7 +193,7 @@ function App() {
         .editUser(token, name, avatar)
         .then((res) => {
           handleCloseModal();
-          setCurrentUser({ name, avatar });
+          setCurrentUser(res);
         })
         .catch((err) => console.error(err));
     }
