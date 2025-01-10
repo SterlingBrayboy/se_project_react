@@ -4,9 +4,9 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   const { currentUser } = useContext(CurrentUserContext);
-  console.log(item);
   const isOwn = item.owner === currentUser._id;
-  const isLiked = item.likes.some((like) => like === currentUser?._id);
+  const isLiked =
+    item.likes && item.likes.some((like) => like === currentUser?._id);
 
   // Determine visibility of the like button based on ownership
   const cardLikeVisible = isOwn ? "card__like_visible" : "card__like_hidden";

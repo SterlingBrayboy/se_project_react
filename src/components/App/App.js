@@ -130,6 +130,7 @@ function App() {
             setClothingItems((cards) =>
               cards.map((c) => (c._id === id ? updatedCard.data : c))
             );
+            console.log(updatedCard.data);
           })
           .catch((err) => console.log(err))
       : // if not, send a request to remove the user's id from the card's likes array
@@ -139,6 +140,7 @@ function App() {
             setClothingItems((cards) =>
               cards.map((c) => (c._id === id ? updatedCard.data : c))
             );
+            console.log(updatedCard.data);
           })
           .catch((err) => console.log(err));
   };
