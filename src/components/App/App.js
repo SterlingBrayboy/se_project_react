@@ -18,6 +18,10 @@ import Profile from "../Profile/Profile";
 import Api from "../../utils/Api";
 import Auth from "../../utils/auth";
 
+// const baseUrl = process.env.NODE_ENV === "production"
+//   ? "https://wtwr.silksky.com"
+//   : "http://localhost:3001";
+
 const api = new Api({
   baseUrl: "http://localhost:3001",
   headers: {
