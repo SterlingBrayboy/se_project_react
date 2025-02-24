@@ -124,6 +124,11 @@ import storm from "../images/day/storm.svg";
 //   },
 // ];
 
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://wtwr.silksky.com"
+    : "http://localhost:3001";
+
 export const weatherOptions = [
   {
     url: sunny,
@@ -146,3 +151,5 @@ export const weatherOptions = [
     type: "storm",
   },
 ];
+
+export { baseUrl };
