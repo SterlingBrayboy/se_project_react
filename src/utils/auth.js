@@ -1,4 +1,4 @@
-import { baseUrl } from "./constants";
+const baseUrl = "https://api.wtwr.silksky.com";
 
 class Auth {
   constructor({ headers }) {
