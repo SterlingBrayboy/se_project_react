@@ -1,5 +1,3 @@
-import { baseUrl } from "../utils/constants";
-
 class Auth {
   constructor({ baseUrl, headers }) {
     // constructor body
