@@ -1,5 +1,7 @@
+import { baseUrl } from "./constants";
+
 class Api {
-  constructor({ baseUrl, headers }) {
+  constructor({ headers }) {
     // constructor body
     this.baseUrl = baseUrl;
     this._headers = headers;
