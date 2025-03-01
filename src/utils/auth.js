@@ -1,7 +1,7 @@
 import { baseUrl } from "../utils/constants";
 
 class Auth {
-  constructor({ headers }) {
+  constructor({ baseUrl, headers }) {
     // constructor body
     this.baseUrl = baseUrl;
     this._headers = headers;
