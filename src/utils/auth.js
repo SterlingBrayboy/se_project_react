@@ -1,6 +1,5 @@
 class Auth {
   constructor({ baseUrl, headers }) {
-    // constructor body
     this.baseUrl = baseUrl;
     this._headers = headers;
   }
