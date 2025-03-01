@@ -1,7 +1,5 @@
-const baseUrl = "https://api.wtwr.silksky.com";
-
 class Api {
-  constructor({ headers }) {
+  constructor({ baseUrl, headers }) {
     // constructor body
     this.baseUrl = baseUrl;
     this._headers = headers;
