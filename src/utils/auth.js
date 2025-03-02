@@ -19,7 +19,7 @@ class Auth {
   }
 
   registerUser({ name, avatar, email, password }) {
-    return fetch(this.baseUrl + "/signup/", {
+    return fetch(this.baseUrl + "/signup", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
